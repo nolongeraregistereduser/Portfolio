@@ -4,9 +4,8 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
-import Experience from './components/Experience';
 import ProjectCard from './components/ProjectCard';
-import Education from './components/Education';
+import Journey from './components/Journey';
 import { PROJECTS, PERSONAL_INFO, SOCIAL_LINKS } from './constants';
 
 const App: React.FC = () => {
@@ -20,8 +19,6 @@ const App: React.FC = () => {
         <About />
 
         <Skills />
-
-        <Experience />
 
         {/* Projects Section */}
         <section id="projects" className="py-32 px-6 bg-neutral-950/50">
@@ -50,7 +47,7 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        <Education />
+        <Journey />
 
         {/* Contact Section */}
         <section id="contact" className="py-40 px-6 text-center border-t border-neutral-900 relative overflow-hidden">
