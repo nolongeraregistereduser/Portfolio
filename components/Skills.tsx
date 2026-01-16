@@ -1,37 +1,40 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { SKILLS } from '../constants';
 
 const Skills: React.FC = () => {
-  const getGradient = (index: number) => {
-    const gradients = [
-      'from-emerald-500/20 to-emerald-900/5',
-      'from-blue-500/20 to-blue-900/5',
-      'from-purple-500/20 to-purple-900/5',
-      'from-orange-500/20 to-orange-900/5',
-      'from-pink-500/20 to-pink-900/5',
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  const getColors = (index: number) => {
+    const colors = [
+      { bg: 'bg-emerald-500/10', border: 'border-emerald-500/30', accent: 'text-emerald-400', glow: 'shadow-emerald-500/30' },
+      { bg: 'bg-blue-500/10', border: 'border-blue-500/30', accent: 'text-blue-400', glow: 'shadow-blue-500/30' },
+      { bg: 'bg-purple-500/10', border: 'border-purple-500/30', accent: 'text-purple-400', glow: 'shadow-purple-500/30' },
+      { bg: 'bg-orange-500/10', border: 'border-orange-500/30', accent: 'text-orange-400', glow: 'shadow-orange-500/30' },
+      { bg: 'bg-pink-500/10', border: 'border-pink-500/30', accent: 'text-pink-400', glow: 'shadow-pink-500/30' },
     ];
-    return gradients[index % gradients.length];
+    return colors[index % colors.length];
   };
 
-  const getAccent = (index: number) => {
-    const accents = [
-      'border-emerald-500/30 hover:border-emerald-500',
-      'border-blue-500/30 hover:border-blue-500',
-      'border-purple-500/30 hover:border-purple-500',
-      'border-orange-500/30 hover:border-orange-500',
-      'border-pink-500/30 hover:border-pink-500',
-    ];
-    return accents[index % accents.length];
-  };
+
+  // Duplicate skills for infinite scroll
+  const duplicatedSkills = [...SKILLS, ...SKILLS, ...SKILLS, ...SKILLS];
 
   return (
-    <section id="skills" className="py-32 px-6 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none"></div>
+    <section id="skills" className="py-24 relative overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-1/4 -right-20 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl pointer-events-none"></div>
       
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+      {/* Blur overlay when card is hovered */}
+      <div 
+        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-40 transition-opacity duration-500 pointer-events-none
+          ${hoveredIndex !== null ? 'opacity-100' : 'opacity-0'}`}
+      ></div>
+
+      <div className={`max-w-7xl mx-auto px-6 mb-16 transition-all duration-500 ${hoveredIndex !== null ? 'blur-sm' : ''}`}>
+        {/* Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div className="max-w-2xl">
             <div className="text-[10px] font-mono text-emerald-500 tracking-widest uppercase mb-4">
               / TECHNICAL EXPERTISE
@@ -46,91 +49,98 @@ const Skills: React.FC = () => {
             freelance projects, and continuous learning.
           </p>
         </div>
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {SKILLS.map((skill, index) => (
-            <div
-              key={skill.category}
-              className={`group relative p-8 rounded-lg border ${getAccent(index)} bg-gradient-to-br ${getGradient(index)} backdrop-blur-sm transition-all duration-500 hover:-translate-y-2`}
-            >
-              {/* Category Icon/Number */}
-              <div className="absolute top-6 right-6 text-[60px] font-black text-white/[0.03] leading-none select-none">
-                0{index + 1}
-              </div>
-
-              <h3 className="text-lg font-bold mb-6 tracking-tight text-white group-hover:text-emerald-400 transition-colors">
-                {skill.category}
-              </h3>
-
-              <div className="flex flex-wrap gap-2">
-                {skill.items.map((item) => (
-                  <span
-                    key={item}
-                    className="px-3 py-1.5 text-[11px] font-mono bg-white/5 border border-white/10 rounded-full text-neutral-300 hover:bg-white/10 hover:text-white transition-all cursor-default"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-
-              {/* Hover glow effect */}
-              <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
-            </div>
-          ))}
-        </div>
-
-        {/* Languages & Additional Info */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="p-8 border border-neutral-800 rounded-lg hover:border-neutral-700 transition-colors">
-            <h3 className="text-sm font-bold uppercase tracking-widest text-neutral-500 mb-6">Languages</h3>
-            <div className="space-y-4">
-              {[
-                { name: 'Arabic', level: 'Native', width: '100%' },
-                { name: 'French', level: 'Proficient', width: '90%' },
-                { name: 'English', level: 'Intermediate', width: '70%' },
-              ].map((lang) => (
-                <div key={lang.name}>
-                  <div className="flex justify-between text-sm mb-2">
-                    <span className="text-neutral-300">{lang.name}</span>
-                    <span className="text-neutral-500 font-mono text-xs">{lang.level}</span>
-                  </div>
-                  <div className="h-1 bg-neutral-800 rounded-full overflow-hidden">
-                    <div 
-                      className="h-full bg-gradient-to-r from-emerald-500 to-emerald-400 rounded-full transition-all duration-1000"
-                      style={{ width: lang.width }}
-                    ></div>
-                  </div>
+      {/* Marquee - Big Square Cards */}
+      <div className="relative group/marquee">
+        {/* Gradient masks */}
+        <div className={`absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none
+          transition-opacity duration-500 ${hoveredIndex !== null ? 'opacity-0' : 'opacity-100'}`}></div>
+        <div className={`absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none
+          transition-opacity duration-500 ${hoveredIndex !== null ? 'opacity-0' : 'opacity-100'}`}></div>
+        
+        <div 
+          className={`flex gap-6 group-hover/marquee:[animation-play-state:paused]
+            ${hoveredIndex !== null ? '' : 'animate-marquee-left'}`}
+          style={{ width: 'max-content' }}
+        >
+          {duplicatedSkills.map((skill, index) => {
+            const colors = getColors(index % SKILLS.length);
+            const isHovered = hoveredIndex === index;
+            const hasHover = hoveredIndex !== null;
+            
+            return (
+              <div
+                key={`${skill.category}-${index}`}
+                onMouseEnter={() => setHoveredIndex(index)}
+                onMouseLeave={() => setHoveredIndex(null)}
+                className={`flex-shrink-0 w-80 h-80 p-6 rounded-2xl ${colors.bg} ${colors.border} border 
+                  backdrop-blur-sm transition-all duration-500 relative overflow-hidden cursor-pointer
+                  ${isHovered 
+                    ? `scale-125 z-50 shadow-2xl ${colors.glow} border-white/30` 
+                    : hasHover 
+                      ? 'blur-sm opacity-30 scale-95' 
+                      : 'hover:shadow-xl'
+                  }`}
+                style={{
+                  transform: isHovered ? 'scale(1.25) translateY(-20px)' : hasHover ? 'scale(0.95)' : 'scale(1)',
+                }}
+              >
+                {/* Big number background */}
+                <div className={`absolute -top-8 -right-4 text-[180px] font-black leading-none select-none 
+                  transition-all duration-500 ${isHovered ? 'text-white/10' : 'text-white/[0.03]'}`}>
+                  0{(index % SKILLS.length) + 1}
                 </div>
-              ))}
-            </div>
-          </div>
 
-          <div className="p-8 border border-neutral-800 rounded-lg hover:border-neutral-700 transition-colors">
-            <h3 className="text-sm font-bold uppercase tracking-widest text-neutral-500 mb-6">Development Approach</h3>
-            <div className="space-y-4 text-sm text-neutral-400">
-              <div className="flex items-start gap-3">
-                <span className="text-emerald-500 mt-1">▹</span>
-                <span>Clean, maintainable code with <span className="text-white">MVC architecture</span></span>
+                {/* Category name */}
+                <h3 className={`text-xl font-black uppercase tracking-tight mb-2 transition-colors duration-300
+                  ${isHovered ? colors.accent : 'text-white'}`}>
+                  {skill.category}
+                </h3>
+
+                {/* Skills list */}
+                <div className="flex flex-wrap gap-2">
+                  {skill.items.map((item, itemIndex) => (
+                    <span
+                      key={item}
+                      className={`px-3 py-1.5 text-[11px] font-mono bg-black/30 border border-white/10 
+                        rounded-lg text-neutral-300 transition-all duration-300
+                        ${isHovered ? 'hover:bg-white/20 hover:text-white hover:border-white/30 hover:scale-105' : ''}`}
+                      style={{
+                        transitionDelay: isHovered ? `${itemIndex * 30}ms` : '0ms',
+                        opacity: isHovered ? 1 : 0.8,
+                      }}
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Hover corner glow */}
+                <div className={`absolute -bottom-20 -right-20 w-60 h-60 rounded-full blur-3xl transition-opacity duration-500
+                  ${colors.accent.replace('text-', 'bg-')} ${isHovered ? 'opacity-40' : 'opacity-0'}`}></div>
+                
+                {/* Top glow */}
+                <div className={`absolute -top-20 -left-20 w-40 h-40 rounded-full blur-3xl transition-opacity duration-500
+                  ${colors.accent.replace('text-', 'bg-')} ${isHovered ? 'opacity-20' : 'opacity-0'}`}></div>
               </div>
-              <div className="flex items-start gap-3">
-                <span className="text-emerald-500 mt-1">▹</span>
-                <span>Secure authentication with <span className="text-white">JWT & Spring Security</span></span>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="text-emerald-500 mt-1">▹</span>
-                <span>RESTful API design following <span className="text-white">best practices</span></span>
-              </div>
-              <div className="flex items-start gap-3">
-                <span className="text-emerald-500 mt-1">▹</span>
-                <span>Agile methodology with <span className="text-white">Scrum framework</span></span>
-              </div>
-            </div>
-          </div>
+            );
+          })}
         </div>
       </div>
+
+      {/* CSS for marquee animation */}
+      <style>{`
+        @keyframes marquee-left {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-marquee-left {
+          animation: marquee-left 60s linear infinite;
+        }
+      `}</style>
     </section>
   );
 };
 
 export default Skills;
-
