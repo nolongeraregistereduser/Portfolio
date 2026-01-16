@@ -12,7 +12,7 @@ export const PERSONAL_INFO = {
   phone: "+212 650668795",
   location: "Rabat, Morocco",
   github: "https://github.com/nolongeraregistereduser",
-  linkedin: "https://linkedin.com/in/uid0zouhairi",
+  linkedin: "https://www.linkedin.com/in/nolongeraregistereduser/",
   resumeUrl: "/docs/MOHAMED-ZOUHAIRI-CV-EN.pdf",
   bio: "Full Stack Developer with strong backend expertise in Java Spring Boot and PHP Laravel, specialized in building secure REST APIs, Spring Security, JWT authentication, and MVC architecture. Solid experience with relational databases (MySQL, PostgreSQL), Linux system administration, and network fundamentals. Agile mindset (Scrum), strong problem-solving skills, and performance-oriented development approach."
 };
@@ -28,7 +28,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
   },
   {
     name: "LinkedIn",
-    url: "https://linkedin.com/in/uid0zouhairi",
+    url: "https://www.linkedin.com/in/nolongeraregistereduser/",
     icon: "linkedin"
   },
   {
