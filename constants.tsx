@@ -200,6 +200,38 @@ export const PROJECTS: Project[] = [
       "Newsletter subscription system",
       "Seamless navigation and user experience"
     ]
+  },
+  {
+    title: "TicketSys — Customer Support Platform",
+    description: "Streamline your customer support. A powerful role-based ticketing system to manage requests, assign agents, and resolve issues faster than ever.",
+    fullDescription: "TicketSys is a modern, enterprise-ready customer support platform built with Laravel. Say goodbye to chaotic email threads and missed requests — TicketSys provides a centralized hub where customers submit tickets, support agents handle assignments, and administrators maintain full control. With real-time dashboards, smart ticket routing, category management, and complete user role separation (User → Agent → Admin), your support team transforms from reactive firefighters into proactive problem-solvers. Whether you're a startup handling 10 tickets a day or an enterprise managing thousands, TicketSys scales with you.",
+    tags: ["SaaS", "Laravel", "Full Stack"],
+    techStack: ["Laravel 11", "MySQL", "Tailwind CSS", "Vite", "Blade", "PHP 8"],
+    image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=600&fit=crop",
+    textLogo: "TicketSys",
+    github: "https://github.com/nolongeraregistereduser/TicketSys",
+    screenshots: [
+      "/images/ticketsys/01-landing-page.png",
+      "/images/ticketsys/02-login.png",
+      "/images/ticketsys/03-admin-dashboard.png",
+      "/images/ticketsys/04-ticket-management.png",
+      "/images/ticketsys/05-category-management.png",
+      "/images/ticketsys/06-user-management.png",
+      "/images/ticketsys/07-user-dashboard.png",
+      "/images/ticketsys/08-ticket-details.png",
+      "/images/ticketsys/09-assignment-success.png",
+      "/images/ticketsys/10-ticket-assignment.png"
+    ],
+    features: [
+      "Multi-role system: Users, Agents & Administrators",
+      "Real-time admin dashboard with ticket analytics",
+      "Smart ticket assignment to support agents",
+      "Category management for organized workflows",
+      "Ticket lifecycle: Open → In Progress → Resolved",
+      "User management with role-based access control",
+      "Customer portal for ticket creation & tracking",
+      "Responsive design for desktop & mobile support"
+    ]
   }
 ];
 

@@ -231,6 +231,31 @@ const ProjectCard: React.FC<Props> = ({ project, index }) => {
                 </div>
               )}
 
+              {/* Screenshots Section */}
+              {project.screenshots && project.screenshots.length > 0 && (
+                <div className="p-8 border-b border-neutral-800">
+                  <h3 className="text-lg font-black uppercase tracking-widest text-emerald-400 mb-6 flex items-center gap-3">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    SCREENSHOTS ({project.screenshots.length})
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {project.screenshots.map((screenshot, idx) => (
+                      <div key={idx} className="group/screenshot">
+                        <div className="aspect-video bg-neutral-900 rounded-xl overflow-hidden border border-neutral-800 group-hover/screenshot:border-emerald-500/30 transition-all">
+                          <img
+                            src={screenshot}
+                            alt={`${project.title} Screenshot ${idx + 1}`}
+                            className="w-full h-full object-cover group-hover/screenshot:scale-105 transition-transform duration-500"
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               {/* Description */}
               <div className="p-8 border-b border-neutral-800">
                 <h3 className="text-lg font-black uppercase tracking-widest text-white mb-4">About the Project</h3>

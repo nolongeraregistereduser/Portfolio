@@ -18,6 +18,7 @@ export interface Project {
   demoVideo?: string;
   demoVideos?: DemoVideo[];
   features?: string[];
+  screenshots?: string[];
 }
 
 export interface Experience {
