@@ -232,6 +232,35 @@ export const PROJECTS: Project[] = [
       "Customer portal for ticket creation & tracking",
       "Responsive design for desktop & mobile support"
     ]
+  },
+  {
+    title: "DevConnect — Developer Social Network",
+    description: "Connect developers worldwide. A modern social platform for sharing knowledge, showcasing projects, discovering opportunities, and building meaningful professional relationships.",
+    fullDescription: "DevConnect is a comprehensive developer-focused social network built to bridge the gap between isolated coding and collaborative community growth. Unlike generic social media, DevConnect is purpose-built for developers who want to share technical knowledge, showcase their projects, discover collaboration opportunities, and build meaningful professional connections. The platform combines the best of LinkedIn, Twitter, and GitHub into one cohesive experience — where developers can post code snippets with syntax highlighting, engage in technical discussions through hashtags, discover trending technologies, and connect with peers who share their tech stack. With real-time notifications powered by Pusher WebSockets, profile customization with skill tags and programming languages, and a discovery feed tailored to your interests, DevConnect transforms how developers network, learn, and collaborate. Whether you're a freelancer seeking project partners, a startup building a developer community, or an enterprise fostering internal tech culture, DevConnect provides the tools to grow your network and accelerate your career.",
+    tags: ["Social Network", "Laravel", "Full Stack"],
+    techStack: ["Laravel 11", "MySQL", "Tailwind CSS", "Vite", "Alpine.js", "Pusher", "Blade"],
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=600&fit=crop",
+    textLogo: "DevConnect",
+    github: "https://github.com/nolongeraregistereduser/DevConnect",
+    screenshots: [
+      "/images/devconnect/01-landing-page.png",
+      "/images/devconnect/02-login.png",
+      "/images/devconnect/03-dashboard-feed.png",
+      "/images/devconnect/04-profile-edit.png",
+      "/images/devconnect/05-main-feed.png",
+      "/images/devconnect/06-post-comments.png",
+      "/images/devconnect/07-create-post.png"
+    ],
+    features: [
+      "Developer profiles with skills, languages & portfolio showcase",
+      "Social feed with code snippets, images & link sharing",
+      "Hashtag system for discoverability & trending topics",
+      "Real-time notifications via WebSocket integration",
+      "Post engagement with likes, comments & shares",
+      "Search functionality for developers, posts & hashtags",
+      "Connection system for professional networking",
+      "Responsive design optimized for all devices"
+    ]
   }
 ];
 
