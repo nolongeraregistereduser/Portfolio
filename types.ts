@@ -2,11 +2,15 @@
 export interface Project {
   title: string;
   description: string;
+  fullDescription?: string;
   tags: string[];
   image: string;
+  logo?: string;
   techStack: string[];
   link?: string;
   github?: string;
+  demoVideo?: string;
+  features?: string[];
 }
 
 export interface Experience {

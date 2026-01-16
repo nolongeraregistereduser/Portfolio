@@ -114,33 +114,45 @@ export const EDUCATION: Education[] = [
 ];
 
 // ============================================
-// PROJECTS (Placeholders - Update later)
+// PROJECTS
 // ============================================
 export const PROJECTS: Project[] = [
   {
-    title: "SmartShop API",
-    description: "REST API for B2B distributor managing 650 clients. Development of automatic loyalty system, split payment management with multiple payment methods and transaction traceability. Security implementation with Spring Security, JWT authentication and role-based access control.",
-    tags: ["B2B", "REST API", "Enterprise"],
-    techStack: ["Spring Boot", "Spring Security", "JWT", "MySQL"],
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
-    github: "#"
-  },
-  {
     title: "Lejob.ma",
-    description: "Platform connecting recruiters and candidates with ATS-compliant CV generator. React frontend and Laravel backend development with authentication system, job listing management and CV templates optimized for tracking systems.",
+    description: "Platform connecting recruiters and candidates with ATS-compliant CV generator.",
+    fullDescription: "Lejob.ma is a comprehensive recruitment platform that bridges the gap between job seekers and employers. The platform features an intelligent ATS-compliant CV generator that helps candidates create optimized resumes. Built with React frontend and Laravel backend, it includes a robust authentication system, job listing management, and CV templates specifically designed to pass through Applicant Tracking Systems.",
     tags: ["Recruitment", "Web App", "SaaS"],
-    techStack: ["React", "Laravel", "MySQL", "REST API"],
+    techStack: ["React", "Laravel", "MySQL", "REST API", "Tailwind CSS"],
     image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=600&fit=crop",
     link: "#",
-    github: "#"
+    github: "#",
+    features: [
+      "ATS-compliant CV generator",
+      "Job listing management",
+      "User authentication system",
+      "CV templates optimized for tracking systems",
+      "Recruiter dashboard"
+    ]
   },
   {
-    title: "MedEx TeleExpertise",
-    description: "Web application for remote medical collaboration between nurses, general practitioners and specialists. Secure patient record management, expertise request system and consultation tracking. MVC architecture with medical role management.",
-    tags: ["Healthcare", "Telemedecine", "Security"],
-    techStack: ["Java EE", "Servlets", "JSP", "MySQL"],
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=600&fit=crop",
-    github: "#"
+    title: "SALAMANCARE (DEMO VIDEO) ",
+    description: "A lightweight MVP connecting caregivers with patients through a simple, accessible mobile-first experience.",
+    fullDescription: "SALAMANCARE is a lightweight MVP that connects caregivers with patients (especially immobile/bedridden patients) through a simple, accessible mobile-first experience. The app focuses on quick alerts, medication coordination, and a caregiver hub for managing patient needs. It provides a single-tap, low-friction way for patients with limited mobility to request help or notify caregivers, while giving caregivers a compact dashboard to receive alerts, manage medications, and track adherence. Built to be bilingual-ready, accessible, and offline-friendly.",
+    tags: ["Healthcare", "Mobile App", "MVP"],
+    techStack: ["React Native", "Expo", "TypeScript", "Firebase"],
+    image: "/images/salamancare-logo.png",
+    logo: "/images/salamancare-logo.png",
+    github: "https://github.com/nolongeraregistereduser/SALAMANCARE",
+    demoVideo: "https://drive.google.com/file/d/1aOl-q6iDEiT4eyBiRD7C7Wz-lF2hnY-R/preview",
+    features: [
+      "One-tap bell for help (configurable quick actions)",
+      "Pre-filled quick messages and customizable buttons",
+      "Bilingual UI support (Arabic / English)",
+      "Offline-first queueing of alerts",
+      "Large, accessible UI for limited mobility",
+      "Real-time alert stream via Firebase",
+      "Medication manager and schedules"
+    ]
   },
   {
     title: "Project Coming Soon",
