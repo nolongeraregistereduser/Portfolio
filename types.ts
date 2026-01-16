@@ -1,4 +1,9 @@
 
+export interface DemoVideo {
+  title: string;
+  url: string;
+}
+
 export interface Project {
   title: string;
   description: string;
@@ -6,10 +11,12 @@ export interface Project {
   tags: string[];
   image: string;
   logo?: string;
+  textLogo?: string;
   techStack: string[];
   link?: string;
   github?: string;
   demoVideo?: string;
+  demoVideos?: DemoVideo[];
   features?: string[];
 }
 

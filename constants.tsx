@@ -118,24 +118,27 @@ export const EDUCATION: Education[] = [
 // ============================================
 export const PROJECTS: Project[] = [
   {
-    title: "Lejob.ma",
-    description: "Platform connecting recruiters and candidates with ATS-compliant CV generator.",
-    fullDescription: "Lejob.ma is a comprehensive recruitment platform that bridges the gap between job seekers and employers. The platform features an intelligent ATS-compliant CV generator that helps candidates create optimized resumes. Built with React frontend and Laravel backend, it includes a robust authentication system, job listing management, and CV templates specifically designed to pass through Applicant Tracking Systems.",
-    tags: ["Recruitment", "Web App", "SaaS"],
-    techStack: ["React", "Laravel", "MySQL", "REST API", "Tailwind CSS"],
+    title: "Lejob.ma (DEMO VIDEO)",
+    description: "Job board & recruitment marketplace connecting employers and candidates — focused on the Moroccan market.",
+    fullDescription: "Lejob.ma is a job board / recruitment marketplace built to connect employers and candidates — focused on the Moroccan market and similar francophone/north-african audiences. It combines a modern Laravel backend with a Vite + React frontend to deliver fast, interactive candidate and employer experiences. The platform helps companies post jobs, filter and shortlist candidates, and manage applicants. Candidates can create profiles, upload CVs, search and apply for jobs, and receive email updates. The platform includes admin tools to moderate content and manage listings.",
+    tags: ["Recruitment", "Job Board", "Marketplace"],
+    techStack: ["Laravel 11", "React", "Vite", "TailwindCSS", "MySQL", "Stripe"],
     image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=600&fit=crop",
-    link: "#",
-    github: "#",
+    textLogo: "Lejob.ma",
+    github: "https://github.com/nolongeraregistereduser/Lejob.ma",
+    demoVideo: "https://drive.google.com/file/d/1WRyc3opysXJcvUouFKZhf7QUimwRxIFR/preview",
     features: [
-      "ATS-compliant CV generator",
-      "Job listing management",
-      "User authentication system",
-      "CV templates optimized for tracking systems",
-      "Recruiter dashboard"
+      "Job listings with categories and geographic locations",
+      "Employer dashboard for creating/updating job ads",
+      "Candidate registration/profile and CV upload",
+      "Search and filtering (title, company, category, location)",
+      "Email notifications (application confirmations, interview invites)",
+      "Admin panel for moderation and analytics",
+      "Foundations for payments / featured listings via Stripe"
     ]
   },
   {
-    title: "SALAMANCARE (DEMO VIDEO) ",
+    title: "SalamanCare (DEMO VIDEO) ",
     description: "A lightweight MVP connecting caregivers with patients through a simple, accessible mobile-first experience.",
     fullDescription: "SALAMANCARE is a lightweight MVP that connects caregivers with patients (especially immobile/bedridden patients) through a simple, accessible mobile-first experience. The app focuses on quick alerts, medication coordination, and a caregiver hub for managing patient needs. It provides a single-tap, low-friction way for patients with limited mobility to request help or notify caregivers, while giving caregivers a compact dashboard to receive alerts, manage medications, and track adherence. Built to be bilingual-ready, accessible, and offline-friendly.",
     tags: ["Healthcare", "Mobile App", "MVP"],
@@ -155,11 +158,28 @@ export const PROJECTS: Project[] = [
     ]
   },
   {
-    title: "Project Coming Soon",
-    description: "A new exciting project is in the works. Stay tuned for updates on innovative solutions combining cutting-edge technologies and creative problem-solving.",
-    tags: ["Coming Soon", "In Development"],
-    techStack: ["TBD"],
-    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600&fit=crop"
+    title: "PageForge.ai (3 DEMOS)",
+    description: "Build stunning landing pages in minutes with AI-powered design. Drag, drop, generate — launch faster than ever.",
+    fullDescription: "PageForge.ai is a revolutionary no-code landing page builder powered by GrapeJS and artificial intelligence. Stop wrestling with code — just describe your vision, and watch AI craft pixel-perfect landing pages instantly. With an intuitive drag-and-drop interface, 50+ professionally designed templates, and smart AI that understands your brand, you can go from idea to live page in under 10 minutes. Perfect for startups, marketers, and agencies who need to ship fast without sacrificing quality.",
+    tags: ["No-Code", "AI-Powered", "Page Builder"],
+    techStack: ["GrapeJS", "React", "Node.js", "OpenAI API", "TailwindCSS", "MongoDB"],
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+    textLogo: "PageForge.ai",
+    demoVideos: [
+      { title: "AI Page Generation", url: "https://drive.google.com/file/d/1-i26Cp9aa-r_8KeZjxBimVhPy7gAsllS/preview" },
+      { title: "Drag & Drop Editor", url: "https://drive.google.com/file/d/1NRmlrDY5H0Hs0kqz6DyYN8mno4B33zIh/preview" },
+      { title: "Template Library", url: "https://drive.google.com/file/d/1BzEz2wJTQkAmaxthOYo3MSJ5svttw7UB/preview" }
+    ],
+    features: [
+      "AI-powered page generation from text prompts",
+      "Drag-and-drop visual editor with GrapeJS",
+      "50+ responsive, conversion-optimized templates",
+      "Real-time collaboration for teams",
+      "One-click publish to custom domains",
+      "Built-in analytics and A/B testing",
+      "SEO optimization tools included",
+      "Export clean HTML/CSS code anytime"
+    ]
   }
 ];
 

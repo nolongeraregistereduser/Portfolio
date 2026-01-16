@@ -11,6 +11,7 @@ const ProjectCard: React.FC<Props> = ({ project, index }) => {
   const [showModal, setShowModal] = useState(false);
   const isComingSoon = project.title.includes('Coming Soon');
   const hasLogo = project.logo || project.image.includes('salamancare');
+  const hasTextLogo = project.textLogo;
 
   const openModal = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -36,8 +37,15 @@ const ProjectCard: React.FC<Props> = ({ project, index }) => {
           0{index + 1}
         </div>
 
-        <div className={`aspect-[16/10] overflow-hidden relative ${hasLogo ? 'bg-neutral-900 flex items-center justify-center p-8' : 'bg-neutral-900'}`}>
-          {hasLogo ? (
+        <div className={`aspect-[16/10] overflow-hidden relative ${(hasLogo || hasTextLogo) ? 'bg-neutral-900 flex items-center justify-center p-8' : 'bg-neutral-900'}`}>
+          {hasTextLogo ? (
+            <div className="flex flex-col items-center justify-center">
+              <span className="text-4xl md:text-5xl font-black text-white tracking-tight group-hover:text-emerald-400 transition-colors duration-500">
+                {project.textLogo}
+              </span>
+              <div className="mt-2 h-1 w-16 bg-emerald-500 rounded-full group-hover:w-24 transition-all duration-500"></div>
+            </div>
+          ) : hasLogo ? (
             <img 
               src={project.logo || project.image} 
               alt={project.title} 
@@ -144,7 +152,11 @@ const ProjectCard: React.FC<Props> = ({ project, index }) => {
             <div className="overflow-y-auto max-h-[90vh] custom-scrollbar">
               {/* Header with logo/image */}
               <div className="relative bg-neutral-900 p-8 flex items-center gap-6 border-b border-neutral-800">
-                {project.logo && (
+                {project.textLogo ? (
+                  <div className="w-20 h-20 rounded-xl bg-gradient-to-br from-emerald-500/20 to-neutral-800 flex items-center justify-center flex-shrink-0 border border-emerald-500/30">
+                    <span className="text-lg font-black text-emerald-400">{project.textLogo.split('.')[0]}</span>
+                  </div>
+                ) : project.logo && (
                   <div className="w-20 h-20 rounded-xl bg-neutral-800 p-3 flex-shrink-0">
                     <img src={project.logo} alt={project.title} className="w-full h-full object-contain" />
                   </div>
@@ -163,8 +175,42 @@ const ProjectCard: React.FC<Props> = ({ project, index }) => {
                 </div>
               </div>
 
-              {/* Demo Video Section */}
-              {project.demoVideo && (
+              {/* Multiple Demo Videos Section */}
+              {project.demoVideos && project.demoVideos.length > 0 && (
+                <div className="p-8 border-b border-neutral-800">
+                  <h3 className="text-lg font-black uppercase tracking-widest text-emerald-400 mb-6 flex items-center gap-3">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    DEMO VIDEOS ({project.demoVideos.length})
+                  </h3>
+                  <div className="space-y-6">
+                    {project.demoVideos.map((video, idx) => (
+                      <div key={idx} className="group/video">
+                        <div className="flex items-center gap-3 mb-3">
+                          <span className="w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/50 flex items-center justify-center text-emerald-400 text-sm font-bold">
+                            {idx + 1}
+                          </span>
+                          <h4 className="text-white font-bold uppercase tracking-wide text-sm">{video.title}</h4>
+                        </div>
+                        <div className="aspect-video bg-neutral-900 rounded-xl overflow-hidden border border-neutral-800 group-hover/video:border-emerald-500/30 transition-colors">
+                          <iframe
+                            src={video.url}
+                            className="w-full h-full"
+                            allow="autoplay; encrypted-media"
+                            allowFullScreen
+                            title={`${project.title} - ${video.title}`}
+                          ></iframe>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Single Demo Video Section */}
+              {project.demoVideo && !project.demoVideos && (
                 <div className="p-8 border-b border-neutral-800">
                   <h3 className="text-lg font-black uppercase tracking-widest text-emerald-400 mb-4 flex items-center gap-3">
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
