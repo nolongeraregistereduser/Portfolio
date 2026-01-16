@@ -4,7 +4,7 @@ import { PERSONAL_INFO } from '../constants';
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="py-32 px-6 relative overflow-hidden">
+    <section id="about" className="pt-8 pb-32 px-6 relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-neutral-800/20 rounded-full blur-3xl pointer-events-none"></div>
