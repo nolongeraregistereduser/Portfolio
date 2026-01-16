@@ -158,13 +158,13 @@ export const PROJECTS: Project[] = [
     ]
   },
   {
-    title: "PageForge.ai (3 DEMOS)",
+    title: "PageForge AI ( Landing Page Builder - NO-CODE ) (3 DEMOS)",
     description: "Build stunning landing pages in minutes with AI-powered design. Drag, drop, generate — launch faster than ever.",
-    fullDescription: "PageForge.ai is a revolutionary no-code landing page builder powered by GrapeJS and artificial intelligence. Stop wrestling with code — just describe your vision, and watch AI craft pixel-perfect landing pages instantly. With an intuitive drag-and-drop interface, 50+ professionally designed templates, and smart AI that understands your brand, you can go from idea to live page in under 10 minutes. Perfect for startups, marketers, and agencies who need to ship fast without sacrificing quality.",
+    fullDescription: "PageForge is a revolutionary no-code landing page builder powered by GrapeJS and artificial intelligence. Stop wrestling with code — just describe your vision, and watch AI craft pixel-perfect landing pages instantly. With an intuitive drag-and-drop interface, 50+ professionally designed templates, and smart AI that understands your brand, you can go from idea to live page in under 10 minutes. Perfect for startups, marketers, and agencies who need to ship fast without sacrificing quality.",
     tags: ["No-Code", "AI-Powered", "Page Builder"],
     techStack: ["GrapeJS", "React", "Node.js", "OpenAI API", "TailwindCSS", "MongoDB"],
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-    textLogo: "PageForge.ai",
+    textLogo: "PageForge AI Powered (NO-CODE)",
     demoVideos: [
       { title: "AI Page Generation", url: "https://drive.google.com/file/d/1-i26Cp9aa-r_8KeZjxBimVhPy7gAsllS/preview" },
       { title: "Drag & Drop Editor", url: "https://drive.google.com/file/d/1NRmlrDY5H0Hs0kqz6DyYN8mno4B33zIh/preview" },
