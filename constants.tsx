@@ -180,6 +180,26 @@ export const PROJECTS: Project[] = [
       "SEO optimization tools included",
       "Export clean HTML/CSS code anytime"
     ]
+  },
+  {
+    title: "Laly Mille — Art Education Platform (LIVE)",
+    description: "Online platform for mixed media & art journaling courses. Browse, enroll, and track your creative learning journey.",
+    fullDescription: "Lalymille is a beautifully crafted online education platform offering various mixed media and art journaling courses. The platform enables students to browse course catalogs, enroll in classes, and track their learning progress. As the frontend developer, I ensured a smooth, responsive user experience across all devices — from desktop to mobile. The platform integrates interactive learning tools, progress tracking features, a beautiful gallery showcase, and seamless navigation that reflects the artistic nature of the content.",
+    tags: ["E-Learning", "Frontend", "Live Project"],
+    techStack: ["JavaScript", "CSS3", "HTML5", "Responsive Design", "UI/UX"],
+    image: "/images/lalymille-logo.webp",
+    logo: "/images/lalymille-logo.webp",
+    link: "https://www.lalymille.com/",
+    features: [
+      "Course catalog with multiple art categories",
+      "Student enrollment and class management",
+      "Course progress tracking system",
+      "Responsive design for all devices",
+      "Interactive learning tools integration",
+      "Art gallery showcase",
+      "Newsletter subscription system",
+      "Seamless navigation and user experience"
+    ]
   }
 ];
 
