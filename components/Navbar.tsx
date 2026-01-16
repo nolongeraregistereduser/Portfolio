@@ -1,6 +1,5 @@
 
 import React, { useState, useEffect } from 'react';
-import { PERSONAL_INFO } from '../constants';
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -15,13 +14,11 @@ const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
+    { name: 'About', href: '#about' },
     { name: 'Skills', href: '#skills' },
     { name: 'Experience', href: '#experience' },
     { name: 'Projects', href: '#projects' },
-    { name: 'Education', href: '#education' },
   ];
-
-  const initials = PERSONAL_INFO.name.split(' ').map(n => n[0]).join('');
 
   return (
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
@@ -30,15 +27,13 @@ const Navbar: React.FC = () => {
         : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        {/* Logo */}
-        <a href="#" className="flex items-center space-x-3 group">
-          <div className="w-10 h-10 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-lg flex items-center justify-center font-black text-black text-sm group-hover:rotate-12 transition-transform duration-500 shadow-lg shadow-emerald-500/20">
-            {initials}
-          </div>
-          <div className="hidden sm:block">
-            <span className="text-lg font-bold tracking-tight text-white">{PERSONAL_INFO.name.split(' ')[0]}</span>
-            <span className="text-lg font-light tracking-tight text-neutral-500"> {PERSONAL_INFO.name.split(' ')[1]}</span>
-          </div>
+        {/* Creative Logo */}
+        <a href="#" className="group flex items-center font-mono text-sm tracking-wider">
+          <span className="text-emerald-500 group-hover:text-emerald-400 transition-colors">&lt;</span>
+          <span className="mx-1 text-white font-bold group-hover:text-emerald-400 transition-colors tracking-widest">M0H4M3D</span>
+          <span className="text-neutral-600 mx-1">/</span>
+          <span className="text-neutral-500 group-hover:text-white transition-colors tracking-widest">Z0UH4IRI</span>
+          <span className="text-emerald-500 group-hover:text-emerald-400 transition-colors">&gt;</span>
         </a>
 
         {/* Desktop Navigation */}

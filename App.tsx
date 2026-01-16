@@ -2,6 +2,7 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import About from './components/About';
 import Skills from './components/Skills';
 import Experience from './components/Experience';
 import ProjectCard from './components/ProjectCard';
@@ -15,6 +16,8 @@ const App: React.FC = () => {
       
       <main>
         <Hero />
+
+        <About />
 
         <Skills />
 
@@ -109,15 +112,16 @@ const App: React.FC = () => {
       <footer className="py-16 px-6 border-t border-neutral-900 bg-black text-neutral-600">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-            {/* Logo & Copyright */}
-            <div className="flex flex-col items-center md:items-start gap-2">
-              <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-lg flex items-center justify-center font-bold text-black text-xs">
-                  MZ
-                </div>
-                <span className="font-bold text-white tracking-tight">{PERSONAL_INFO.name}</span>
-              </div>
-              <div className="text-[10px] font-mono tracking-widest uppercase mt-2">
+            {/* Creative Logo */}
+            <div className="flex flex-col items-center md:items-start gap-3">
+              <a href="#" className="font-mono text-sm tracking-wider flex items-center">
+                <span className="text-emerald-500">&lt;</span>
+                <span className="mx-1 text-white font-bold tracking-widest">M0H4M3D</span>
+                <span className="text-neutral-600 mx-1">/</span>
+                <span className="text-neutral-500 tracking-widest">Z0UH4IRI</span>
+                <span className="text-emerald-500">&gt;</span>
+              </a>
+              <div className="text-[10px] font-mono tracking-widest uppercase">
                 &copy; {new Date().getFullYear()} All Rights Reserved.
               </div>
             </div>
