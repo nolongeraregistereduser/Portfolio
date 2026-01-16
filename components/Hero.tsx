@@ -1,12 +1,14 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { PERSONAL_INFO, SOCIAL_LINKS } from '../constants';
 
 const Hero: React.FC = () => {
   const [displayText, setDisplayText] = useState('');
-  const roles = ['Full Stack Developer', 'Backend Engineer', 'API Architect', 'Problem Solver'];
+  const roles = ['Full Stack Developer', 'DevOps' , 'System Administrator', 'Problem Solver', 'Performance Driven', 'Detail Oriented'];
   const [roleIndex, setRoleIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [showCvDropdown, setShowCvDropdown] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const currentRole = roles[roleIndex];
@@ -30,8 +32,19 @@ const Hero: React.FC = () => {
     return () => clearTimeout(timeout);
   }, [displayText, isDeleting, roleIndex]);
 
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setShowCvDropdown(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-20 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-20 pb-20">
       {/* Dynamic Background Grid */}
       <div className="absolute top-0 left-0 w-full h-full opacity-[0.02] pointer-events-none overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:40px_40px]"></div>
@@ -75,13 +88,50 @@ const Hero: React.FC = () => {
           </span>
         </div>
 
-        {/* Bio */}
-        <p className="text-base md:text-lg text-neutral-400 mb-10 max-w-2xl mx-auto leading-relaxed font-light">
-          Specialized in <span className="text-white font-medium">Spring Boot</span> & <span className="text-white font-medium">Laravel</span>.
-          Building secure REST APIs with <span className="text-emerald-400">JWT</span> authentication.
-          <br className="hidden md:block" />
-          <span className="text-neutral-500 italic">Agile mindset. Performance-driven.</span>
-        </p>
+        {/* Creative Bio - Full Stack + DevOps */}
+        <div className="text-sm md:text-base text-neutral-400 mb-10 max-w-3xl mx-auto font-mono">
+          <p 
+            className="mb-3 opacity-0 animate-[fadeSlideUp_0.6s_ease-out_0.2s_forwards]"
+          >
+            <span className="text-emerald-400">&gt;</span>{' '}
+            <span className="text-white font-medium">Code meets infrastructure.</span>{' '}
+            I build <span className="text-emerald-400">scalable backends</span> with{' '}
+            <span className="text-neutral-200">Spring Boot</span> &{' '}
+            <span className="text-neutral-200">Laravel</span>,
+          </p>
+          <p 
+            className="mb-3 opacity-0 animate-[fadeSlideUp_0.6s_ease-out_0.4s_forwards]"
+          >
+            <span className="text-emerald-400">&gt;</span>{' '}
+            automate <span className="text-emerald-400">deployments</span>,{' '}
+            and manage <span className="text-emerald-400">cloud infrastructure</span>{' '}
+            with precision.
+          </p>
+          <p 
+            className="text-neutral-500 opacity-0 animate-[fadeSlideUp_0.6s_ease-out_0.6s_forwards]"
+          >
+            <span className="text-emerald-400">&gt;</span>{' '}
+            <span className="text-neutral-400">// </span>
+            From <span className="text-neutral-300">REST APIs</span> to{' '}
+            <span className="text-neutral-300">CI/CD pipelines</span>,{' '}
+            <span className="text-neutral-300">Docker</span> to{' '}
+            <span className="text-neutral-300">production</span> —{' '}
+            <span className="text-white font-medium">I ship code that scales.</span>
+          </p>
+          
+          {/* Tech tags */}
+          <div className="flex flex-wrap justify-center gap-2 mt-8">
+            {['Full Stack', 'DevOps', 'Backend', 'SysAdmin', 'Security'].map((tag, index) => (
+              <span 
+                key={tag}
+                className="group px-4 py-1.5 text-[10px] font-black uppercase tracking-widest border border-neutral-800 rounded-full text-neutral-500 hover:border-emerald-500/50 hover:text-emerald-400 hover:-translate-y-0.5 transition-all cursor-default"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
 
         {/* Social Links */}
         <div className="flex items-center gap-6 mb-12">
@@ -126,24 +176,76 @@ const Hero: React.FC = () => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
           </a>
-          <a 
-            href={PERSONAL_INFO.resumeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group px-8 py-4 border border-neutral-700 text-white font-bold uppercase tracking-widest text-xs hover:border-emerald-500 hover:text-emerald-400 transition-all duration-300 flex items-center gap-3"
-          >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-            </svg>
-            Download CV
-          </a>
+          
+          {/* CV Download with Language Selection */}
+          <div className="relative" ref={dropdownRef}>
+            <button 
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setShowCvDropdown(!showCvDropdown);
+              }}
+              className="group px-8 py-4 border border-neutral-700 text-white font-bold uppercase tracking-widest text-xs hover:border-emerald-500 hover:text-emerald-400 transition-all duration-300 flex items-center gap-3"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+              Download CV
+              <svg className={`w-3 h-3 transition-transform duration-300 ${showCvDropdown ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            
+            {/* Dropdown Menu */}
+            <div 
+              className={`absolute top-full left-0 right-0 mt-2 z-[100] transition-all duration-200 ${
+                showCvDropdown 
+                  ? 'opacity-100 visible translate-y-0' 
+                  : 'opacity-0 invisible -translate-y-2 pointer-events-none'
+              }`}
+            >
+              <div className="bg-neutral-900 border border-neutral-800 rounded-lg overflow-hidden shadow-2xl shadow-black/50">
+                <a 
+                  href="/docs/MOHAMED-ZOUHAIRI-CV-EN.pdf"
+                  download="MOHAMED-ZOUHAIRI-CV-EN.pdf"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowCvDropdown(false);
+                  }}
+                  className="group/item flex items-center gap-4 px-6 py-4 text-neutral-300 hover:bg-emerald-500/10 hover:text-emerald-400 transition-all border-b border-neutral-800 cursor-pointer"
+                >
+                  <span className="text-lg font-bold">EN</span>
+                  <div className="flex-1">
+                    <span className="font-black uppercase tracking-widest text-xs block">English</span>
+                    <span className="text-[10px] text-neutral-500 group-hover/item:text-emerald-400/60">CV in English</span>
+                  </div>
+                  <svg className="w-4 h-4 opacity-50 group-hover/item:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                  </svg>
+                </a>
+                <a 
+                  href="/docs/MOHAMED-ZOUHAIRI-CV-FR.pdf"
+                  download="MOHAMED-ZOUHAIRI-CV-FR.pdf"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setShowCvDropdown(false);
+                  }}
+                  className="group/item flex items-center gap-4 px-6 py-4 text-neutral-300 hover:bg-emerald-500/10 hover:text-emerald-400 transition-all cursor-pointer"
+                >
+                  <span className="text-lg font-bold">FR</span>
+                  <div className="flex-1">
+                    <span className="font-black uppercase tracking-widest text-xs block">Français</span>
+                    <span className="text-[10px] text-neutral-500 group-hover/item:text-emerald-400/60">CV en Français</span>
+                  </div>
+                  <svg className="w-4 h-4 opacity-50 group-hover/item:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center space-y-3">
-          <span className="text-[10px] font-mono text-neutral-700 uppercase tracking-widest animate-pulse">Scroll</span>
-          <div className="w-[1px] h-12 bg-gradient-to-b from-neutral-800 to-transparent"></div>
-        </div>
       </div>
     </section>
   );
