@@ -37,12 +37,29 @@ const Journey: React.FC = () => {
     })),
   ].sort((a, b) => {
     // Sort by period (most recent first)
-    // Extract year from period string (e.g., "May 2025 - July 2025" -> 2025)
-    const getYear = (period: string) => {
-      const match = period.match(/\d{4}/);
-      return match ? parseInt(match[0]) : 0;
+    // Extract end year from period string (e.g., "May 2024 - July 2024" -> 2024, "2024 - 2026" -> 2026)
+    const getEndYear = (period: string) => {
+      // Try to find the last 4-digit year (end date)
+      const matches = period.match(/\d{4}/g);
+      if (matches && matches.length > 0) {
+        // If multiple years found, use the last one (end year)
+        return parseInt(matches[matches.length - 1]);
+      }
+      return 0;
     };
-    return getYear(b.period) - getYear(a.period);
+    const endYearB = getEndYear(b.period);
+    const endYearA = getEndYear(a.period);
+    
+    // If same end year, sort by start year (later start = more recent)
+    if (endYearB === endYearA) {
+      const getStartYear = (period: string) => {
+        const match = period.match(/\d{4}/);
+        return match ? parseInt(match[0]) : 0;
+      };
+      return getStartYear(b.period) - getStartYear(a.period);
+    }
+    
+    return endYearB - endYearA;
   });
 
   return (

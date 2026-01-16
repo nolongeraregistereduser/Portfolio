@@ -71,7 +71,7 @@ export const EXPERIENCES: Experience[] = [
   {
     title: "Full Stack Developer - PMIS Application",
     company: "NETMAR",
-    period: "May 2025 - July 2025",
+    period: "May 2024 - July 2024",
     location: "Rabat",
     description: "Contributed to the complete full stack development cycle of a Port Management Information System for maritime port call management: business requirements analysis, backend architecture design with PHP Laravel, REST API development for maritime data management, MySQL database implementation and production deployment. Collaboration in Agile methodology with the technical team and project stakeholders.",
     technologies: ["PHP Laravel", "MySQL", "REST API", "Agile"]
@@ -105,7 +105,7 @@ export const EDUCATION: Education[] = [
     description: "Professional training focused on full stack development, agile project management and solving real-world problems."
   },
   {
-    degree: "Associate Degree in Network & Systems Administration",
+    degree: "DUT (Diplôme Universitaire de Technologie) - Network & Systems Administration",
     school: "École Supérieure de Technologie de Salé",
     period: "2019 - 2021",
     location: "Salé",
