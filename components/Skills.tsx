@@ -21,18 +21,18 @@ const Skills: React.FC = () => {
   const duplicatedSkills = [...SKILLS, ...SKILLS, ...SKILLS, ...SKILLS];
 
   return (
-    <section id="skills" className="py-24 relative overflow-hidden">
+    <section id="skills" className={`py-24 relative ${hoveredIndex !== null ? '' : 'overflow-hidden'}`}>
       {/* Background decorations */}
       <div className="absolute top-1/4 -left-20 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute bottom-1/4 -right-20 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl pointer-events-none"></div>
       
       {/* Blur overlay when card is hovered */}
       <div 
-        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-40 transition-opacity duration-500 pointer-events-none
+        className={`fixed inset-0 bg-black/60 backdrop-blur-md z-30 transition-opacity duration-500 pointer-events-none
           ${hoveredIndex !== null ? 'opacity-100' : 'opacity-0'}`}
       ></div>
 
-      <div className={`max-w-7xl mx-auto px-6 mb-16 transition-all duration-500 ${hoveredIndex !== null ? 'blur-sm' : ''}`}>
+      <div className={`max-w-7xl mx-auto px-6 mb-16 transition-all duration-500 relative z-10 ${hoveredIndex !== null ? 'blur-sm' : ''}`}>
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div className="max-w-2xl">
@@ -52,7 +52,7 @@ const Skills: React.FC = () => {
       </div>
 
       {/* Marquee - Big Square Cards */}
-      <div className="relative group/marquee">
+      <div className="relative group/marquee" style={{ zIndex: hoveredIndex !== null ? 50 : 'auto' }}>
         {/* Gradient masks */}
         <div className={`absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none
           transition-opacity duration-500 ${hoveredIndex !== null ? 'opacity-0' : 'opacity-100'}`}></div>
@@ -60,9 +60,13 @@ const Skills: React.FC = () => {
           transition-opacity duration-500 ${hoveredIndex !== null ? 'opacity-0' : 'opacity-100'}`}></div>
         
         <div 
-          className={`flex gap-6 group-hover/marquee:[animation-play-state:paused]
-            ${hoveredIndex !== null ? '' : 'animate-marquee-left'}`}
-          style={{ width: 'max-content' }}
+          className={`flex gap-6 ${hoveredIndex !== null ? '' : 'animate-marquee-left'}`}
+          style={{ 
+            width: 'max-content',
+            animationPlayState: hoveredIndex !== null ? 'paused' : 'running',
+            willChange: hoveredIndex !== null ? 'auto' : 'transform',
+            transform: hoveredIndex !== null ? 'translateZ(0)' : undefined,
+          }}
         >
           {duplicatedSkills.map((skill, index) => {
             const colors = getColors(index % SKILLS.length);
@@ -75,15 +79,25 @@ const Skills: React.FC = () => {
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
                 className={`flex-shrink-0 w-80 h-80 p-6 rounded-2xl ${colors.bg} ${colors.border} border 
-                  backdrop-blur-sm transition-all duration-500 relative overflow-hidden cursor-pointer
+                  backdrop-blur-sm relative overflow-hidden cursor-pointer
                   ${isHovered 
-                    ? `scale-125 z-50 shadow-2xl ${colors.glow} border-white/30` 
+                    ? `shadow-2xl ${colors.glow} border-white/30` 
                     : hasHover 
-                      ? 'blur-sm opacity-30 scale-95' 
+                      ? 'blur-sm opacity-30' 
                       : 'hover:shadow-xl'
                   }`}
                 style={{
-                  transform: isHovered ? 'scale(1.25) translateY(-20px)' : hasHover ? 'scale(0.95)' : 'scale(1)',
+                  transform: isHovered ? 'translate3d(0, -20px, 0) scale(1.25)' : hasHover ? 'translate3d(0, 0, 0) scale(0.95)' : 'translate3d(0, 0, 0) scale(1)',
+                  transformOrigin: 'center center',
+                  transition: isHovered || hasHover 
+                    ? 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease-out, filter 0.3s ease-out'
+                    : 'transform 0.2s ease-out, opacity 0.2s ease-out, filter 0.2s ease-out',
+                  filter: isHovered ? 'blur(0px)' : hasHover ? 'blur(4px)' : 'blur(0px)',
+                  willChange: isHovered || hasHover ? 'transform' : 'auto',
+                  zIndex: isHovered ? 60 : hasHover ? 10 : 20,
+                  backfaceVisibility: 'hidden',
+                  WebkitBackfaceVisibility: 'hidden',
+                  isolation: 'isolate',
                 }}
               >
                 {/* Big number background */}
@@ -137,6 +151,7 @@ const Skills: React.FC = () => {
         }
         .animate-marquee-left {
           animation: marquee-left 60s linear infinite;
+          will-change: transform;
         }
       `}</style>
     </section>
