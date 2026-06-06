@@ -25,7 +25,7 @@ const App: React.FC = () => {
         <Journey />
 
         {/* Contact Section */}
-        <section id="contact" className="py-40 px-6 text-center border-t border-neutral-900 relative overflow-hidden">
+        <section id="contact" className="py-24 md:py-40 px-6 text-center border-t border-neutral-900 relative overflow-hidden">
           {/* Background decorations */}
           <div className="absolute top-1/4 left-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none"></div>
           <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl pointer-events-none"></div>
@@ -38,12 +38,12 @@ const App: React.FC = () => {
               <span className="text-neutral-600">Ready to build something amazing?</span>
             </div>
             
-            <h2 className="text-5xl md:text-8xl font-black mb-8 tracking-tighter uppercase leading-[0.9]">
+            <h2 className="text-4xl sm:text-5xl md:text-8xl font-black mb-8 tracking-tighter uppercase leading-[0.9]">
               Have a project<br />
               <span className="text-neutral-600">in mind?</span>
             </h2>
-            
-            <p className="text-lg text-neutral-400 mb-16 font-light max-w-xl mx-auto leading-relaxed">
+
+            <p className="text-base sm:text-lg text-neutral-400 mb-12 md:mb-16 font-light max-w-xl mx-auto leading-relaxed">
               I'm always open to discussing new opportunities, interesting projects, 
               or just a friendly chat about technology. Let's turn your ideas into reality.
             </p>
@@ -141,10 +141,10 @@ const App: React.FC = () => {
             </div>
 
             {/* Main CTA Button */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a 
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-sm sm:max-w-none mx-auto">
+              <a
                 href={`mailto:${PERSONAL_INFO.email}?subject=Let's work together`}
-                className="group relative inline-flex items-center gap-3 px-12 py-5 bg-emerald-500 text-black font-bold uppercase tracking-widest text-sm hover:bg-emerald-400 transition-all shadow-lg shadow-emerald-500/20 hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-500/30 rounded-lg overflow-hidden"
+                className="group relative inline-flex items-center justify-center w-full sm:w-auto gap-3 px-12 py-5 bg-emerald-500 text-black font-bold uppercase tracking-widest text-sm hover:bg-emerald-400 transition-all shadow-lg shadow-emerald-500/20 hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-500/30 rounded-lg overflow-hidden"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></span>
                 <span className="relative z-10">Send Email</span>
@@ -156,7 +156,7 @@ const App: React.FC = () => {
                 href="https://wa.me/212650668795"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative inline-flex items-center gap-3 px-12 py-5 bg-green-500 text-white font-bold uppercase tracking-widest text-sm hover:bg-green-400 transition-all shadow-lg shadow-green-500/20 hover:-translate-y-1 hover:shadow-xl hover:shadow-green-500/30 rounded-lg overflow-hidden"
+                className="group relative inline-flex items-center justify-center w-full sm:w-auto gap-3 px-12 py-5 bg-green-500 text-white font-bold uppercase tracking-widest text-sm hover:bg-green-400 transition-all shadow-lg shadow-green-500/20 hover:-translate-y-1 hover:shadow-xl hover:shadow-green-500/30 rounded-lg overflow-hidden"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000"></span>
                 <svg className="w-5 h-5 relative z-10" fill="currentColor" viewBox="0 0 24 24">

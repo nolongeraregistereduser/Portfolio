@@ -53,7 +53,7 @@ const Skills: React.FC = () => {
             <div className="text-[10px] font-mono text-emerald-500 tracking-widest uppercase mb-4">
               / TECHNICAL EXPERTISE
             </div>
-            <h2 className="text-5xl md:text-7xl font-black tracking-tighter uppercase">
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter uppercase">
               Three <br />
               <span className="text-neutral-600">Pillars</span>
             </h2>
@@ -71,7 +71,7 @@ const Skills: React.FC = () => {
             return (
               <div
                 key={pillar.category}
-                className={`group relative flex flex-col p-8 rounded-2xl border border-neutral-800 bg-neutral-950/50 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl ${accent.border} ${accent.glow} overflow-hidden`}
+                className={`group relative flex flex-col p-6 md:p-8 rounded-2xl border border-neutral-800 bg-neutral-950/50 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl ${accent.border} ${accent.glow} overflow-hidden`}
               >
                 {/* Big number watermark */}
                 <div className="absolute -top-6 -right-2 text-[140px] font-black leading-none select-none text-white/[0.03] group-hover:text-white/[0.05] transition-colors duration-500 pointer-events-none">

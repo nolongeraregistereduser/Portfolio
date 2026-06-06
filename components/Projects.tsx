@@ -16,14 +16,14 @@ const Projects: React.FC = () => {
   const filteredProjects = PROJECTS.filter((p) => p.category === activeFilter);
 
   return (
-    <section id="projects" className="py-32 px-6 bg-neutral-950/50">
+    <section id="projects" className="py-20 md:py-32 px-6 bg-neutral-950/50">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8">
           <div className="max-w-2xl">
             <div className="text-[10px] font-mono text-emerald-500 tracking-widest uppercase mb-4">
               / FEATURED WORK
             </div>
-            <h2 className="text-5xl md:text-7xl font-black tracking-tighter uppercase">
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter uppercase">
               Selected <br />
               <span className="text-neutral-600">Projects</span>
             </h2>

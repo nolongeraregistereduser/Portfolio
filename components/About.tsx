@@ -4,23 +4,23 @@ import { PERSONAL_INFO } from '../constants';
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="pt-8 pb-32 px-6 relative overflow-hidden">
+    <section id="about" className="pt-8 pb-24 md:pb-32 px-6 relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-neutral-800/20 rounded-full blur-3xl pointer-events-none"></div>
       
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
-        <div className="mb-20">
+        <div className="mb-12 md:mb-20">
           <div className="text-[10px] font-mono text-emerald-500 tracking-widest uppercase mb-4">
             / WHO AM I
           </div>
-          <h2 className="text-5xl md:text-7xl font-black tracking-tighter uppercase">
+          <h2 className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter uppercase">
             About <span className="text-neutral-600">Me</span>
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Profile Image Column */}
           <div className="lg:col-span-5 relative group">
             <div className="relative">
@@ -56,7 +56,7 @@ const About: React.FC = () => {
               </div>
 
               {/* Floating badge */}
-              <div className="absolute -bottom-6 -right-6 px-4 py-2 bg-emerald-500 text-black font-black text-xs uppercase tracking-widest rounded-lg shadow-lg shadow-emerald-500/30 rotate-3 group-hover:rotate-0 transition-transform">
+              <div className="absolute -bottom-4 -right-2 sm:-bottom-6 sm:-right-6 px-4 py-2 bg-emerald-500 text-black font-black text-xs uppercase tracking-widest rounded-lg shadow-lg shadow-emerald-500/30 rotate-3 group-hover:rotate-0 transition-transform">
                 Available for Work
               </div>
             </div>
@@ -180,14 +180,14 @@ const About: React.FC = () => {
                       <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/0 via-emerald-500/5 to-emerald-500/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
                       
                       {/* Icon container with pulse effect */}
-                      <div className="relative w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center group-hover:bg-emerald-500/20 group-hover:scale-110 transition-all duration-300">
+                      <div className="relative w-12 h-12 shrink-0 rounded-lg bg-emerald-500/10 flex items-center justify-center group-hover:bg-emerald-500/20 group-hover:scale-110 transition-all duration-300">
                         {item.icon}
                         <div className="absolute inset-0 rounded-lg bg-emerald-500/20 scale-0 group-hover:scale-100 opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
                       </div>
                       
-                      <div className="relative">
+                      <div className="relative min-w-0">
                         <div className="text-[10px] font-black text-neutral-500 uppercase tracking-widest">{item.label}</div>
-                        <div className="text-neutral-300 text-sm font-bold group-hover:text-white transition-colors">{item.value}</div>
+                        <div className="text-neutral-300 text-sm font-bold group-hover:text-white transition-colors break-words">{item.value}</div>
                       </div>
                       
                       {/* Arrow indicator for links */}

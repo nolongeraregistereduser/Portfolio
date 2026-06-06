@@ -63,14 +63,14 @@ const Journey: React.FC = () => {
   });
 
   return (
-    <section id="journey" className="py-32 px-6 bg-neutral-950/50 relative overflow-hidden">
+    <section id="journey" className="py-20 md:py-32 px-6 bg-neutral-950/50 relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute top-1/4 left-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl pointer-events-none"></div>
       
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-20 gap-8">
           <div className="max-w-2xl">
             <div className="text-[10px] font-mono text-emerald-400 tracking-widest uppercase mb-4 flex items-center gap-3">
               <span>/ MY JOURNEY</span>
@@ -79,7 +79,7 @@ const Journey: React.FC = () => {
               <span className="text-neutral-700">+</span>
               <span className="text-purple-400">Education</span>
             </div>
-            <h2 className="text-5xl md:text-7xl font-black tracking-tighter uppercase mb-4">
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter uppercase mb-4">
               Experience <br />
               <span className="text-neutral-600">& Education</span>
             </h2>
@@ -106,9 +106,7 @@ const Journey: React.FC = () => {
               return (
                 <div
                   key={`${item.type}-${index}`}
-                  className={`relative grid grid-cols-1 md:grid-cols-2 gap-8 ${
-                    index % 2 === 0 ? '' : 'md:direction-rtl'
-                  }`}
+                  className="relative grid grid-cols-1 md:grid-cols-2 gap-8"
                 >
                   {/* Timeline dot with type indicator */}
                   <div className="absolute left-0 md:left-1/2 w-6 h-6 bg-black border-2 rounded-full md:-translate-x-1/2 -translate-x-1/2 top-0 z-10 flex items-center justify-center">

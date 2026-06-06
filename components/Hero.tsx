@@ -44,7 +44,7 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative min-h-[85vh] flex flex-col items-center justify-center px-6 pt-20 pb-0">
+    <section className="relative min-h-[85vh] flex flex-col items-center justify-center px-6 pt-28 sm:pt-24 pb-12 sm:pb-0">
       {/* Dynamic Background Grid */}
       <div className="absolute top-0 left-0 w-full h-full opacity-[0.02] pointer-events-none overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:40px_40px]"></div>
@@ -64,7 +64,7 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Name with creative styling */}
-        <h1 className="text-5xl md:text-[90px] font-black mb-4 tracking-tighter leading-[0.9]">
+        <h1 className="text-5xl sm:text-7xl md:text-[90px] font-black mb-4 tracking-tighter leading-[0.9]">
           <span className="bg-gradient-to-r from-white via-neutral-300 to-neutral-500 bg-clip-text text-transparent hover:from-emerald-400 hover:via-white hover:to-emerald-400 transition-all duration-1000">
             {PERSONAL_INFO.name.split(' ')[0].toUpperCase()}
           </span>
@@ -75,15 +75,15 @@ const Hero: React.FC = () => {
         </h1>
 
         {/* Animated Role */}
-        <div className="h-12 flex items-center justify-center mb-8">
-          <span className="text-xl md:text-2xl font-mono text-emerald-500">
+        <div className="min-h-[3rem] flex items-center justify-center mb-8 px-2">
+          <span className="text-lg sm:text-xl md:text-2xl font-mono text-emerald-500">
             {'<'}
           </span>
-          <span className="text-xl md:text-2xl font-light text-neutral-300 mx-2">
+          <span className="text-lg sm:text-xl md:text-2xl font-light text-neutral-300 mx-2 text-center">
             {displayText}
             <span className="animate-pulse text-emerald-500">|</span>
           </span>
-          <span className="text-xl md:text-2xl font-mono text-emerald-500">
+          <span className="text-lg sm:text-xl md:text-2xl font-mono text-emerald-500">
             {'/>'}
           </span>
         </div>
@@ -168,10 +168,10 @@ const Hero: React.FC = () => {
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-          <a 
-            href="#projects" 
-            className="group px-8 py-4 bg-white text-black font-bold uppercase tracking-widest text-xs hover:bg-emerald-400 hover:text-black transition-all duration-300 flex items-center gap-3"
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 w-full max-w-sm sm:max-w-none mx-auto">
+          <a
+            href="#projects"
+            className="group w-full sm:w-auto px-8 py-4 bg-white text-black font-bold uppercase tracking-widest text-xs hover:bg-emerald-400 hover:text-black transition-all duration-300 flex items-center justify-center gap-3"
           >
             View Projects
             <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -180,14 +180,14 @@ const Hero: React.FC = () => {
           </a>
           
           {/* CV Download with Language Selection */}
-          <div className="relative" ref={dropdownRef}>
-            <button 
+          <div className="relative w-full sm:w-auto" ref={dropdownRef}>
+            <button
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 setShowCvDropdown(!showCvDropdown);
               }}
-              className="group px-8 py-4 border border-neutral-700 text-white font-bold uppercase tracking-widest text-xs hover:border-emerald-500 hover:text-emerald-400 transition-all duration-300 flex items-center gap-3"
+              className="group w-full sm:w-auto px-8 py-4 border border-neutral-700 text-white font-bold uppercase tracking-widest text-xs hover:border-emerald-500 hover:text-emerald-400 transition-all duration-300 flex items-center justify-center gap-3"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
@@ -243,8 +243,8 @@ const Hero: React.FC = () => {
                   >
                     <span className="w-9 h-9 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-[10px] font-black text-emerald-400 shrink-0">{cv.badge}</span>
                     <div className="flex-1 text-left min-w-0">
-                      <span className="font-black uppercase tracking-wide text-[11px] block whitespace-nowrap">{cv.title}</span>
-                      <span className="text-[10px] text-neutral-500 group-hover/item:text-emerald-400/60 font-mono block whitespace-nowrap">{cv.sub}</span>
+                      <span className="font-black uppercase tracking-wide text-[11px] block leading-tight">{cv.title}</span>
+                      <span className="text-[10px] text-neutral-500 group-hover/item:text-emerald-400/60 font-mono block leading-tight">{cv.sub}</span>
                     </div>
                     <svg className="w-4 h-4 opacity-40 group-hover/item:opacity-100 transition-opacity shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>

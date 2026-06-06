@@ -12,10 +12,19 @@
       font-family: 'Inter', sans-serif;
       scroll-behavior: smooth;
       background-color: #050505;
-      cursor: none; /* Hide default cursor for custom glass lens */
     }
-    a, button, [role="button"] {
-      cursor: none;
+    /* Custom glass-lens cursor only on devices with a fine pointer (mouse/trackpad).
+       Touch / coarse-pointer devices keep the native behaviour. */
+    @media (hover: hover) and (pointer: fine) {
+      body, a, button, [role="button"] {
+        cursor: none;
+      }
+    }
+    /* Hide the custom cursor + global sweep on touch devices */
+    @media (hover: none), (pointer: coarse) {
+      #custom-cursor, .glass-sweep {
+        display: none !important;
+      }
     }
     /* Font mono is defined below with animation keyframes */
     .glass {
@@ -135,19 +144,23 @@
   <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
   <script>
-    const cursor = document.getElementById('custom-cursor');
-    document.addEventListener('mousemove', (e) => {
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top = e.clientY + 'px';
-    });
-    
-    document.addEventListener('mouseover', (e) => {
-      if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('button') || e.target.closest('a')) {
-        document.body.classList.add('cursor-hover');
-      } else {
-        document.body.classList.remove('cursor-hover');
-      }
-    });
+    // Only wire up the custom glass-lens cursor on devices with a fine pointer.
+    const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (finePointer) {
+      const cursor = document.getElementById('custom-cursor');
+      document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+      });
+
+      document.addEventListener('mouseover', (e) => {
+        if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.closest('button') || e.target.closest('a')) {
+          document.body.classList.add('cursor-hover');
+        } else {
+          document.body.classList.remove('cursor-hover');
+        }
+      });
+    }
   </script>
 </body>
 </html>
