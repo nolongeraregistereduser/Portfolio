@@ -212,19 +212,19 @@ const Hero: React.FC = () => {
                 </div>
                 {[
                   {
-                    file: '/docs/Mohamed-Zouhairi-CV-Software-PHP-Laravel.pdf',
+                    file: 'https://drive.google.com/uc?export=download&id=1ZzCZKbGzXKPIdm9NgOQJyXrHjTrov0WW',
                     badge: 'PHP',
                     title: 'PHP CV',
                     sub: 'PHP / Laravel / Symfony',
                   },
                   {
-                    file: '/docs/Mohamed-Zouhairi-CV-Software-Java-Angular.pdf',
+                    file: 'https://drive.google.com/uc?export=download&id=1pnK2qFcbtn-LjjfpksvVLfEVg4fWli_A',
                     badge: 'JV',
                     title: 'Java CV',
                     sub: 'Java / Spring Boot / Angular',
                   },
                   {
-                    file: '/docs/Mohamed-Zouhairi-CV-IT-SysAdmin.pdf',
+                    file: 'https://drive.google.com/uc?export=download&id=1YNNkwp13FBbWSsMllGoHxpaQrgyZPhoQ',
                     badge: 'IT',
                     title: 'IT Support & SysAdmin CV',
                     sub: 'ServiceNow / Linux / Networking',
@@ -233,7 +233,8 @@ const Hero: React.FC = () => {
                   <a
                     key={cv.file}
                     href={cv.file}
-                    download={cv.file.split('/').pop()}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     onClick={(e) => {
                       e.stopPropagation();
                       setShowCvDropdown(false);
