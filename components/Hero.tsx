@@ -88,49 +88,51 @@ const Hero: React.FC = () => {
           </span>
         </div>
 
-        {/* Creative Bio - Full Stack + DevOps */}
-        <div className="text-sm md:text-base text-neutral-400 mb-10 max-w-3xl mx-auto font-mono">
-          <p 
-            className="mb-3 opacity-0 animate-[fadeSlideUp_0.6s_ease-out_0.2s_forwards]"
-          >
-            <span className="text-emerald-400">&gt;</span>{' '}
-            <span className="text-white font-medium">Code meets infrastructure.</span>{' '}
-            I build <span className="text-emerald-400">scalable backends</span> with{' '}
-            <span className="text-neutral-200">Spring Boot</span> &{' '}
-            <span className="text-neutral-200">Laravel</span>,
-          </p>
-          <p 
-            className="mb-3 opacity-0 animate-[fadeSlideUp_0.6s_ease-out_0.4s_forwards]"
-          >
-            <span className="text-emerald-400">&gt;</span>{' '}
-            automate <span className="text-emerald-400">deployments</span>,{' '}
-            and manage <span className="text-emerald-400">cloud infrastructure</span>{' '}
-            with precision.
-          </p>
-          <p 
-            className="text-neutral-500 opacity-0 animate-[fadeSlideUp_0.6s_ease-out_0.6s_forwards]"
-          >
-            <span className="text-emerald-400">&gt;</span>{' '}
-            <span className="text-neutral-400">// </span>
-            From <span className="text-neutral-300">REST APIs</span> to{' '}
-            <span className="text-neutral-300">CI/CD pipelines</span>,{' '}
-            <span className="text-neutral-300">Docker</span> to{' '}
-            <span className="text-neutral-300">production</span> —{' '}
-            <span className="text-white font-medium">I ship code that scales.</span>
-          </p>
-          
-          {/* Tech tags */}
-          <div className="flex flex-wrap justify-center gap-2 mt-8">
-            {['Full Stack', 'DevOps', 'Backend', 'SysAdmin', 'Security'].map((tag, index) => (
-              <span 
-                key={tag}
-                className="group px-4 py-1.5 text-[10px] font-black uppercase tracking-widest border border-neutral-800 rounded-full text-neutral-500 hover:border-emerald-500/50 hover:text-emerald-400 hover:-translate-y-0.5 transition-all cursor-default"
-                style={{ animationDelay: `${index * 100}ms` }}
+        {/* Main Headline */}
+        <h2 className="text-xl md:text-3xl font-light text-neutral-300 mb-10 max-w-3xl mx-auto leading-snug tracking-tight opacity-0 animate-[fadeSlideUp_0.6s_ease-out_0.15s_forwards]">
+          Bridging the gap between{' '}
+          <span className="font-bold bg-gradient-to-r from-emerald-400 to-emerald-200 bg-clip-text text-transparent">
+            Software Engineering
+          </span>{' '}
+          &amp;{' '}
+          <span className="font-bold bg-gradient-to-r from-blue-400 to-blue-200 bg-clip-text text-transparent">
+            IT Infrastructure
+          </span>.
+        </h2>
+
+        {/* Role Badges — the 3 hats */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 w-full max-w-3xl mx-auto mb-12">
+          {[
+            { emoji: '💻', title: 'Full Stack Engineering', sub: 'Java / PHP / Angular', accent: 'emerald' },
+            { emoji: '⚙️', title: 'DevOps & Cloud', sub: 'Docker / K8s / Linux', accent: 'blue' },
+            { emoji: '🛠️', title: 'IT Operations', sub: 'ServiceNow / SysAdmin', accent: 'purple' },
+          ].map((badge, index) => {
+            const accentMap: Record<string, string> = {
+              emerald: 'hover:border-emerald-500/50 hover:shadow-emerald-500/10',
+              blue: 'hover:border-blue-500/50 hover:shadow-blue-500/10',
+              purple: 'hover:border-purple-500/50 hover:shadow-purple-500/10',
+            };
+            const textMap: Record<string, string> = {
+              emerald: 'group-hover:text-emerald-400',
+              blue: 'group-hover:text-blue-400',
+              purple: 'group-hover:text-purple-400',
+            };
+            return (
+              <div
+                key={badge.title}
+                className={`group flex flex-col items-center gap-1.5 px-4 py-5 rounded-2xl border border-neutral-800 bg-neutral-950/50 backdrop-blur-sm hover:-translate-y-1 hover:shadow-xl transition-all duration-500 cursor-default opacity-0 animate-[fadeSlideUp_0.6s_ease-out_forwards] ${accentMap[badge.accent]}`}
+                style={{ animationDelay: `${0.3 + index * 0.15}s` }}
               >
-                {tag}
-              </span>
-            ))}
-          </div>
+                <span className="text-2xl mb-1">{badge.emoji}</span>
+                <span className={`text-sm font-black uppercase tracking-wide text-white transition-colors ${textMap[badge.accent]}`}>
+                  {badge.title}
+                </span>
+                <span className="text-[10px] font-mono tracking-widest text-neutral-500 uppercase">
+                  {badge.sub}
+                </span>
+              </div>
+            );
+          })}
         </div>
 
         {/* Social Links */}
@@ -197,50 +199,54 @@ const Hero: React.FC = () => {
             </button>
             
             {/* Dropdown Menu */}
-            <div 
-              className={`absolute top-full left-0 right-0 mt-2 z-[100] transition-all duration-200 ${
-                showCvDropdown 
-                  ? 'opacity-100 visible translate-y-0' 
+            <div
+              className={`absolute top-full left-0 mt-2 w-72 z-[100] transition-all duration-200 ${
+                showCvDropdown
+                  ? 'opacity-100 visible translate-y-0'
                   : 'opacity-0 invisible -translate-y-2 pointer-events-none'
               }`}
             >
               <div className="bg-neutral-900 border border-neutral-800 rounded-lg overflow-hidden shadow-2xl shadow-black/50">
-                <a 
-                  href="/docs/MOHAMED-ZOUHAIRI-CV-EN.pdf"
-                  download="MOHAMED-ZOUHAIRI-CV-EN.pdf"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setShowCvDropdown(false);
-                  }}
-                  className="group/item flex items-center gap-4 px-6 py-4 text-neutral-300 hover:bg-emerald-500/10 hover:text-emerald-400 transition-all border-b border-neutral-800 cursor-pointer"
-                >
-                  <span className="text-lg font-bold">EN</span>
-                  <div className="flex-1">
-                    <span className="font-black uppercase tracking-widest text-xs block">English</span>
-                    <span className="text-[10px] text-neutral-500 group-hover/item:text-emerald-400/60">CV in English</span>
-                  </div>
-                  <svg className="w-4 h-4 opacity-50 group-hover/item:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-                  </svg>
-                </a>
-                <a 
-                  href="/docs/MOHAMED-ZOUHAIRI-CV-FR.pdf"
-                  download="MOHAMED-ZOUHAIRI-CV-FR.pdf"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setShowCvDropdown(false);
-                  }}
-                  className="group/item flex items-center gap-4 px-6 py-4 text-neutral-300 hover:bg-emerald-500/10 hover:text-emerald-400 transition-all cursor-pointer"
-                >
-                  <span className="text-lg font-bold">FR</span>
-                  <div className="flex-1">
-                    <span className="font-black uppercase tracking-widest text-xs block">Français</span>
-                    <span className="text-[10px] text-neutral-500 group-hover/item:text-emerald-400/60">CV en Français</span>
-                  </div>
-                  <svg className="w-4 h-4 opacity-50 group-hover/item:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-                  </svg>
-                </a>
+                {[
+                  {
+                    file: '/docs/Mohamed-Zouhairi-CV-Software-Java-Angular.pdf',
+                    badge: 'JV',
+                    title: 'Software Dev CV',
+                    sub: 'Java / Spring Boot / Angular',
+                  },
+                  {
+                    file: '/docs/Mohamed-Zouhairi-CV-Software-PHP-Laravel.pdf',
+                    badge: 'PHP',
+                    title: 'Software Dev CV',
+                    sub: 'PHP / Laravel',
+                  },
+                  {
+                    file: '/docs/Mohamed-Zouhairi-CV-IT-SysAdmin.pdf',
+                    badge: 'IT',
+                    title: 'IT Support & SysAdmin CV',
+                    sub: 'ServiceNow / Linux / Networking',
+                  },
+                ].map((cv, idx, arr) => (
+                  <a
+                    key={cv.file}
+                    href={cv.file}
+                    download={cv.file.split('/').pop()}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setShowCvDropdown(false);
+                    }}
+                    className={`group/item flex items-center gap-4 px-5 py-4 text-neutral-300 hover:bg-emerald-500/10 hover:text-emerald-400 transition-all cursor-pointer ${idx < arr.length - 1 ? 'border-b border-neutral-800' : ''}`}
+                  >
+                    <span className="text-xs font-black w-8 text-center text-emerald-400 shrink-0">{cv.badge}</span>
+                    <div className="flex-1 text-left">
+                      <span className="font-black uppercase tracking-wider text-xs block">{cv.title}</span>
+                      <span className="text-[10px] text-neutral-500 group-hover/item:text-emerald-400/60 font-mono">{cv.sub}</span>
+                    </div>
+                    <svg className="w-4 h-4 opacity-50 group-hover/item:opacity-100 transition-opacity shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                    </svg>
+                  </a>
+                ))}
               </div>
             </div>
           </div>

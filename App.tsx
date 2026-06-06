@@ -4,9 +4,9 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
-import ProjectCard from './components/ProjectCard';
+import Projects from './components/Projects';
 import Journey from './components/Journey';
-import { PROJECTS, PERSONAL_INFO, SOCIAL_LINKS } from './constants';
+import { PERSONAL_INFO, SOCIAL_LINKS } from './constants';
 
 const App: React.FC = () => {
   return (
@@ -20,32 +20,7 @@ const App: React.FC = () => {
 
         <Skills />
 
-        {/* Projects Section */}
-        <section id="projects" className="py-32 px-6 bg-neutral-950/50">
-          <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
-              <div className="max-w-2xl">
-                <div className="text-[10px] font-mono text-emerald-500 tracking-widest uppercase mb-4">
-                  / FEATURED WORK
-                </div>
-                <h2 className="text-5xl md:text-7xl font-black tracking-tighter uppercase">
-                  Selected <br />
-                  <span className="text-neutral-600">Projects</span>
-                </h2>
-              </div>
-              <p className="text-neutral-400 text-sm max-w-md font-light leading-relaxed">
-                From B2B enterprise APIs to healthcare platforms — building solutions that matter.
-                <span className="block mt-2 text-neutral-600 italic">Projects can be updated anytime.</span>
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {PROJECTS.map((project, index) => (
-                <ProjectCard key={project.title} project={project} index={index} />
-              ))}
-            </div>
-          </div>
-        </section>
+        <Projects />
 
         <Journey />
 

@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Project } from '../types';
 
 interface Props {
@@ -124,9 +125,10 @@ const ProjectCard: React.FC<Props> = ({ project, index }) => {
         </div>
       </div>
 
-      {/* Modal */}
-      {showModal && (
-        <div 
+      {/* Modal — portaled to <body> so it overlays the viewport regardless of
+          any transformed/animated ancestor in the project grid. */}
+      {showModal && createPortal(
+        <div
           className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8"
           onClick={closeModal}
         >
@@ -264,6 +266,32 @@ const ProjectCard: React.FC<Props> = ({ project, index }) => {
                 </p>
               </div>
 
+              {/* The Challenge */}
+              {project.challenge && (
+                <div className="p-8 border-b border-neutral-800">
+                  <h3 className="text-lg font-black uppercase tracking-widest text-amber-400 mb-4 flex items-center gap-3">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                    The Challenge
+                  </h3>
+                  <p className="text-neutral-400 leading-relaxed">{project.challenge}</p>
+                </div>
+              )}
+
+              {/* The Architecture */}
+              {project.architecture && (
+                <div className="p-8 border-b border-neutral-800">
+                  <h3 className="text-lg font-black uppercase tracking-widest text-blue-400 mb-4 flex items-center gap-3">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                    </svg>
+                    The Architecture
+                  </h3>
+                  <p className="text-neutral-400 leading-relaxed">{project.architecture}</p>
+                </div>
+              )}
+
               {/* Features */}
               {project.features && project.features.length > 0 && (
                 <div className="p-8 border-b border-neutral-800">
@@ -325,7 +353,8 @@ const ProjectCard: React.FC<Props> = ({ project, index }) => {
               </div>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
 
       {/* Custom scrollbar styles */}
