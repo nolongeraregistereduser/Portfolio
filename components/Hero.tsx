@@ -209,16 +209,16 @@ const Hero: React.FC = () => {
               <div className="bg-neutral-900 border border-neutral-800 rounded-lg overflow-hidden shadow-2xl shadow-black/50">
                 {[
                   {
-                    file: '/docs/Mohamed-Zouhairi-CV-Software-Java-Angular.pdf',
-                    badge: 'JV',
-                    title: 'Software Dev CV',
-                    sub: 'Java / Spring Boot / Angular',
-                  },
-                  {
                     file: '/docs/Mohamed-Zouhairi-CV-Software-PHP-Laravel.pdf',
                     badge: 'PHP',
-                    title: 'Software Dev CV',
-                    sub: 'PHP / Laravel',
+                    title: 'PHP CV',
+                    sub: 'PHP / Laravel / Symfony',
+                  },
+                  {
+                    file: '/docs/Mohamed-Zouhairi-CV-Software-Java-Angular.pdf',
+                    badge: 'JV',
+                    title: 'Java CV',
+                    sub: 'Java / Spring Boot / Angular',
                   },
                   {
                     file: '/docs/Mohamed-Zouhairi-CV-IT-SysAdmin.pdf',

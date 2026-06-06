@@ -120,7 +120,7 @@ export const EDUCATION: Education[] = [
 export const PROJECTS: Project[] = [
   {
     id: "localvitrine",
-    category: "software",
+    category: "java",
     title: "LocalVitrine",
     description: "SaaS landing-page generator that lets local businesses launch SEO-ready pages — no code, no agency.",
     fullDescription: "LocalVitrine is a B2B SaaS platform that turns the painful, expensive process of getting online into a few clicks. Built end-to-end with an Angular 17 front end and a Spring Boot 3 backend, it pairs a GrapesJS visual no-code editor with AI-assisted content generation so a shop owner can describe their business and walk away with a polished, conversion-focused landing page. Every page is published through a dynamic template-resolution engine on clean, SEO-friendly URLs — and the whole stack ships to a Kubernetes cluster behind an Nginx reverse proxy, so it scales from the first customer to the thousandth without re-architecting.",
@@ -134,7 +134,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "agribat",
-    category: "software",
+    category: "php",
     title: "Agribat",
     description: "Real-time multiplayer farming simulation — a browser MMO where players grow, trade and survive live economies.",
     fullDescription: "Agribat is a real-time, multiplayer farming simulation (MMO-style) where players manage farms inside a living, breathing economy. Engineered with PHP 8.2 and Symfony 7.2, it models the world through 52 Doctrine entities and 38 dedicated business services that simulate complex markets, salaries, weather and cultivation cycles. The standout piece of engineering is a custom temporal-compression engine paired with an autonomous game loop (cron-driven) that keeps the world running even when players are offline — crops keep growing, wages keep paying and the weather keeps turning. Real-time state is pushed to every connected player over Mercure, and the entire stack is containerized with Docker and shipped through GitLab CI/CD to a Linux VPS.",
@@ -148,7 +148,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "vantery",
-    category: "software",
+    category: "php",
     title: "Vantery (LIVE)",
     description: "AI-powered EdTech platform that guides students to the right university path with explainable, data-driven recommendations.",
     fullDescription: "Vantery is a live EdTech SaaS platform that helps students answer one of the hardest questions they'll face — where, and what, to study. Built as a stateful single-page application on Next.js with a Laravel 11 API, it pairs a multi-dimensional, weighted scoring engine (running on PostgreSQL with trigram search and JSONB) with an AI Orientation Bot powered by a deterministic scoring core combined with Claude AI — so every recommendation is not just smart, but auditable and explainable. Security is first-class: authentication via Laravel Sanctum, role-based access control with Spatie, and query-level anti-enumeration protections. The whole platform is self-hosted end to end — provisioned on a Linux VPS with Nginx, SSL and automated CI/CD pipelines that I built and operate.",
@@ -162,7 +162,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "goexploria",
-    category: "software",
+    category: "php",
     title: "GoExploria (LIVE)",
     description: "Multi-module digital-growth SaaS for tourism — CRM, CMS and a no-code page builder in one platform.",
     fullDescription: "GoExploria is a live, multi-module SaaS platform built to power digital growth for the tourism sector. Architected and delivered from zero — cloud infrastructure, database design and deployment workflows included — it brings together everything a tourism business needs to grow online in a single product: a CRM to manage leads and customers, a CMS to run content, and a company directory to centralize marketing efforts. The centerpiece is an integrated GrapesJS visual page builder that lets non-technical users design and publish SEO-optimized landing pages entirely on their own, removing the developer bottleneck from everyday marketing.",
@@ -176,7 +176,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "microservices-ecommerce",
-    category: "devops",
+    category: "java",
     title: "Microservices E-Commerce",
     description: "Cloud-native distributed e-commerce system built to survive failure and scale on demand.",
     fullDescription: "A cloud-native, distributed e-commerce platform engineered to do what monoliths can't: keep selling even when individual parts break. The system is decomposed into independent Java 17 / Spring Cloud microservices along clear domain boundaries (clients, products, billing), each deployable and scalable on its own. Service discovery runs through Netflix Eureka, all traffic flows through a single API Gateway, and configuration is centralized with Spring Cloud Config so the fleet can be tuned without redeploys. Inter-service calls use OpenFeign, and Resilience4j circuit breakers contain failures so one struggling service never cascades into a full outage — the foundation of a system that's genuinely production-ready.",
@@ -242,7 +242,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "tricol-inventory",
-    category: "software",
+    category: "java",
     title: "Tricol Inventory",
     description: "ERP supply-chain engine with strict FIFO batch tracking and a complete movement audit trail.",
     fullDescription: "Tricol Inventory is an ERP-grade inventory and supply-chain engine built for businesses that can't afford to lose track of a single batch. The hard requirement was strict chronological FIFO tracking — knowing exactly which lot moves first, and being able to prove it. Built on Spring Boot with a DTO-driven API (mapped cleanly via MapStruct), it enforces business rules at every step and records a full audit history of every inventory movement. Database schema changes are versioned and reproducible thanks to Liquibase migrations, and the core logic is locked down with extensive JUnit/Mockito test coverage, making the system safe to evolve in production.",
@@ -256,7 +256,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "smartshop-api",
-    category: "software",
+    category: "java",
     title: "SmartShop API",
     description: "B2B commercial backend engine handling the full order lifecycle, loyalty tiers and split payments.",
     fullDescription: "SmartShop is a B2B commercial backend engine that powers the messy, money-critical parts of wholesale commerce. Built as a robust Spring Boot REST API with strict Jakarta Validation and managed through Maven, it orchestrates the complete B2B order lifecycle from quote to fulfilment. Its standout feature is a dynamic loyalty engine that applies tier-based discounts automatically, alongside rigorous financial workflows — subtotal and VAT computation, multi-channel split payments, and real-time stock validation that prevents overselling. Every endpoint is guarded by validation rules that keep dirty data and invalid transactions out of the system, making it a dependable backbone for B2B platforms.",
@@ -270,7 +270,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "lejob-ma",
-    category: "software",
+    category: "php",
     title: "Lejob.ma (DEMO VIDEO)",
     description: "Job board & recruitment marketplace connecting employers and candidates — focused on the Moroccan market.",
     fullDescription: "Lejob.ma is a job board / recruitment marketplace built to connect employers and candidates — focused on the Moroccan market and similar francophone/north-african audiences. It combines a modern Laravel backend with a Vite + React frontend to deliver fast, interactive candidate and employer experiences. The platform helps companies post jobs, filter and shortlist candidates, and manage applicants. Candidates can create profiles, upload CVs, search and apply for jobs, and receive email updates. The platform includes admin tools to moderate content and manage listings.",
@@ -292,7 +292,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "salamancare",
-    category: "software",
+    category: "php",
     title: "SalamanCare (DEMO VIDEO) ",
     description: "A lightweight MVP connecting caregivers with patients through a simple, accessible mobile-first experience.",
     fullDescription: "SALAMANCARE is a lightweight MVP that connects caregivers with patients (especially immobile/bedridden patients) through a simple, accessible mobile-first experience. The app focuses on quick alerts, medication coordination, and a caregiver hub for managing patient needs. It provides a single-tap, low-friction way for patients with limited mobility to request help or notify caregivers, while giving caregivers a compact dashboard to receive alerts, manage medications, and track adherence. Built to be bilingual-ready, accessible, and offline-friendly.",
@@ -314,7 +314,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "pageforge-ai",
-    category: "software",
+    category: "php",
     title: "PageForge AI ( Landing Page Builder - NO-CODE ) (3 DEMOS)",
     description: "Build stunning landing pages in minutes with AI-powered design. Drag, drop, generate — launch faster than ever.",
     fullDescription: "PageForge is a revolutionary no-code landing page builder powered by GrapeJS and artificial intelligence. Stop wrestling with code — just describe your vision, and watch AI craft pixel-perfect landing pages instantly. With an intuitive drag-and-drop interface, 50+ professionally designed templates, and smart AI that understands your brand, you can go from idea to live page in under 10 minutes. Perfect for startups, marketers, and agencies who need to ship fast without sacrificing quality.",
@@ -340,7 +340,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "laly-mille",
-    category: "software",
+    category: "php",
     title: "Laly Mille — Art Education Platform (LIVE)",
     description: "Online platform for mixed media & art journaling courses. Browse, enroll, and track your creative learning journey.",
     fullDescription: "Lalymille is a beautifully crafted online education platform offering various mixed media and art journaling courses. The platform enables students to browse course catalogs, enroll in classes, and track their learning progress. As the frontend developer, I ensured a smooth, responsive user experience across all devices — from desktop to mobile. The platform integrates interactive learning tools, progress tracking features, a beautiful gallery showcase, and seamless navigation that reflects the artistic nature of the content.",
@@ -362,7 +362,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "ticketsys",
-    category: "software",
+    category: "php",
     title: "TicketSys — Customer Support Platform",
     description: "Streamline your customer support. A powerful role-based ticketing system to manage requests, assign agents, and resolve issues faster than ever.",
     fullDescription: "TicketSys is a modern, enterprise-ready customer support platform built with Laravel. Say goodbye to chaotic email threads and missed requests — TicketSys provides a centralized hub where customers submit tickets, support agents handle assignments, and administrators maintain full control. With real-time dashboards, smart ticket routing, category management, and complete user role separation (User → Agent → Admin), your support team transforms from reactive firefighters into proactive problem-solvers. Whether you're a startup handling 10 tickets a day or an enterprise managing thousands, TicketSys scales with you.",
@@ -396,7 +396,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "devconnect",
-    category: "software",
+    category: "php",
     title: "DevConnect — Developer Social Network",
     description: "Connect developers worldwide. A modern social platform for sharing knowledge, showcasing projects, discovering opportunities, and building meaningful professional relationships.",
     fullDescription: "DevConnect is a comprehensive developer-focused social network built to bridge the gap between isolated coding and collaborative community growth. Unlike generic social media, DevConnect is purpose-built for developers who want to share technical knowledge, showcase their projects, discover collaboration opportunities, and build meaningful professional connections. The platform combines the best of LinkedIn, Twitter, and GitHub into one cohesive experience — where developers can post code snippets with syntax highlighting, engage in technical discussions through hashtags, discover trending technologies, and connect with peers who share their tech stack. With real-time notifications powered by Pusher WebSockets, profile customization with skill tags and programming languages, and a discovery feed tailored to your interests, DevConnect transforms how developers network, learn, and collaborate. Whether you're a freelancer seeking project partners, a startup building a developer community, or an enterprise fostering internal tech culture, DevConnect provides the tools to grow your network and accelerate your career.",

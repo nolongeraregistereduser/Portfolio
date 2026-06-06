@@ -4,22 +4,16 @@ import { PROJECTS } from '../constants';
 import { ProjectCategory } from '../types';
 import ProjectCard from './ProjectCard';
 
-type FilterValue = 'all' | ProjectCategory;
-
-const FILTERS: { value: FilterValue; label: string }[] = [
-  { value: 'all', label: 'All' },
-  { value: 'software', label: 'Software Development' },
-  { value: 'devops', label: 'DevOps & Cloud' },
+const FILTERS: { value: ProjectCategory; label: string }[] = [
+  { value: 'php', label: 'PHP / Laravel' },
+  { value: 'java', label: 'Java / Spring' },
   { value: 'it', label: 'IT & SysAdmin' },
 ];
 
 const Projects: React.FC = () => {
-  const [activeFilter, setActiveFilter] = useState<FilterValue>('all');
+  const [activeFilter, setActiveFilter] = useState<ProjectCategory>('php');
 
-  const filteredProjects =
-    activeFilter === 'all'
-      ? PROJECTS
-      : PROJECTS.filter((p) => p.category === activeFilter);
+  const filteredProjects = PROJECTS.filter((p) => p.category === activeFilter);
 
   return (
     <section id="projects" className="py-32 px-6 bg-neutral-950/50">
@@ -45,10 +39,7 @@ const Projects: React.FC = () => {
         <div className="flex flex-wrap gap-3 mb-12">
           {FILTERS.map((filter) => {
             const isActive = activeFilter === filter.value;
-            const count =
-              filter.value === 'all'
-                ? PROJECTS.length
-                : PROJECTS.filter((p) => p.category === filter.value).length;
+            const count = PROJECTS.filter((p) => p.category === filter.value).length;
             return (
               <button
                 key={filter.value}

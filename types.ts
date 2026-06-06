@@ -4,7 +4,7 @@ export interface DemoVideo {
   url: string;
 }
 
-export type ProjectCategory = 'software' | 'devops' | 'it';
+export type ProjectCategory = 'php' | 'java' | 'it';
 
 export interface Project {
   id: string;
