@@ -149,7 +149,7 @@ export const PROJECTS: Project[] = [
   {
     id: "vantery",
     category: "php",
-    title: "Vantery (LIVE)",
+    title: "Vantery",
     description: "AI-powered EdTech platform that guides students to the right university path with explainable, data-driven recommendations.",
     fullDescription: "Vantery is a live EdTech SaaS platform that helps students answer one of the hardest questions they'll face — where, and what, to study. Built as a stateful single-page application on Next.js with a Laravel 11 API, it pairs a multi-dimensional, weighted scoring engine (running on PostgreSQL with trigram search and JSONB) with an AI Orientation Bot powered by a deterministic scoring core combined with Claude AI — so every recommendation is not just smart, but auditable and explainable. Security is first-class: authentication via Laravel Sanctum, role-based access control with Spatie, and query-level anti-enumeration protections. The whole platform is self-hosted end to end — provisioned on a Linux VPS with Nginx, SSL and automated CI/CD pipelines that I built and operate.",
     tags: ["EdTech", "AI", "SaaS"],
@@ -163,7 +163,7 @@ export const PROJECTS: Project[] = [
   {
     id: "goexploria",
     category: "php",
-    title: "GoExploria (LIVE)",
+    title: "GoExploria",
     description: "Multi-module digital-growth SaaS for tourism — CRM, CMS and a no-code page builder in one platform.",
     fullDescription: "GoExploria is a live, multi-module SaaS platform built to power digital growth for the tourism sector. Architected and delivered from zero — cloud infrastructure, database design and deployment workflows included — it brings together everything a tourism business needs to grow online in a single product: a CRM to manage leads and customers, a CMS to run content, and a company directory to centralize marketing efforts. The centerpiece is an integrated GrapesJS visual page builder that lets non-technical users design and publish SEO-optimized landing pages entirely on their own, removing the developer bottleneck from everyday marketing.",
     tags: ["SaaS", "Tourism", "No-Code"],
@@ -271,7 +271,7 @@ export const PROJECTS: Project[] = [
   {
     id: "lejob-ma",
     category: "php",
-    title: "Lejob.ma (DEMO VIDEO)",
+    title: "Lejob.ma",
     description: "Job board & recruitment marketplace connecting employers and candidates — focused on the Moroccan market.",
     fullDescription: "Lejob.ma is a job board / recruitment marketplace built to connect employers and candidates — focused on the Moroccan market and similar francophone/north-african audiences. It combines a modern Laravel backend with a Vite + React frontend to deliver fast, interactive candidate and employer experiences. The platform helps companies post jobs, filter and shortlist candidates, and manage applicants. Candidates can create profiles, upload CVs, search and apply for jobs, and receive email updates. The platform includes admin tools to moderate content and manage listings.",
     tags: ["Recruitment", "Job Board", "Marketplace"],
@@ -293,7 +293,7 @@ export const PROJECTS: Project[] = [
   {
     id: "salamancare",
     category: "php",
-    title: "SalamanCare (DEMO VIDEO) ",
+    title: "SalamanCare",
     description: "A lightweight MVP connecting caregivers with patients through a simple, accessible mobile-first experience.",
     fullDescription: "SALAMANCARE is a lightweight MVP that connects caregivers with patients (especially immobile/bedridden patients) through a simple, accessible mobile-first experience. The app focuses on quick alerts, medication coordination, and a caregiver hub for managing patient needs. It provides a single-tap, low-friction way for patients with limited mobility to request help or notify caregivers, while giving caregivers a compact dashboard to receive alerts, manage medications, and track adherence. Built to be bilingual-ready, accessible, and offline-friendly.",
     tags: ["Healthcare", "Mobile App", "MVP"],
@@ -315,7 +315,7 @@ export const PROJECTS: Project[] = [
   {
     id: "pageforge-ai",
     category: "php",
-    title: "PageForge AI ( Landing Page Builder - NO-CODE ) (3 DEMOS)",
+    title: "PageForge AI",
     description: "Build stunning landing pages in minutes with AI-powered design. Drag, drop, generate — launch faster than ever.",
     fullDescription: "PageForge is a revolutionary no-code landing page builder powered by GrapeJS and artificial intelligence. Stop wrestling with code — just describe your vision, and watch AI craft pixel-perfect landing pages instantly. With an intuitive drag-and-drop interface, 50+ professionally designed templates, and smart AI that understands your brand, you can go from idea to live page in under 10 minutes. Perfect for startups, marketers, and agencies who need to ship fast without sacrificing quality.",
     tags: ["No-Code", "AI-Powered", "Page Builder"],
@@ -341,7 +341,7 @@ export const PROJECTS: Project[] = [
   {
     id: "laly-mille",
     category: "php",
-    title: "Laly Mille — Art Education Platform (LIVE)",
+    title: "Laly Mille — Art Education Platform",
     description: "Online platform for mixed media & art journaling courses. Browse, enroll, and track your creative learning journey.",
     fullDescription: "Lalymille is a beautifully crafted online education platform offering various mixed media and art journaling courses. The platform enables students to browse course catalogs, enroll in classes, and track their learning progress. As the frontend developer, I ensured a smooth, responsive user experience across all devices — from desktop to mobile. The platform integrates interactive learning tools, progress tracking features, a beautiful gallery showcase, and seamless navigation that reflects the artistic nature of the content.",
     tags: ["E-Learning", "Frontend", "Live Project"],

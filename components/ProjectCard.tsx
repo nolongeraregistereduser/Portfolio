@@ -27,6 +27,25 @@ const ProjectCard: React.FC<Props> = ({ project, index }) => {
     document.body.style.overflow = 'auto';
   };
 
+  // Category styling for the modal header
+  const CATEGORY_META: Record<string, { label: string; text: string; bg: string; border: string; from: string }> = {
+    php: { label: 'PHP / Laravel', text: 'text-purple-400', bg: 'bg-purple-500/10', border: 'border-purple-500/30', from: 'from-purple-500/20' },
+    java: { label: 'Java / Spring', text: 'text-blue-400', bg: 'bg-blue-500/10', border: 'border-blue-500/30', from: 'from-blue-500/20' },
+    it: { label: 'IT & SysAdmin', text: 'text-emerald-400', bg: 'bg-emerald-500/10', border: 'border-emerald-500/30', from: 'from-emerald-500/20' },
+  };
+  const meta = CATEGORY_META[project.category] || CATEGORY_META.php;
+
+  // Live / Demo status derived from the data, not the title
+  const status: 'LIVE' | 'DEMO' | null = project.link
+    ? 'LIVE'
+    : (project.demoVideo || (project.demoVideos && project.demoVideos.length > 0))
+      ? 'DEMO'
+      : null;
+
+  // Robust monogram from the title (avoids long text overflowing the badge)
+  const words = project.title.replace(/[^a-zA-Z0-9 ]/g, ' ').trim().split(/\s+/).filter(Boolean);
+  const monogram = (words.length > 1 ? words.slice(0, 2).map((w) => w[0]).join('') : (words[0] || '?').slice(0, 2)).toUpperCase();
+
   return (
     <>
       <div 
@@ -37,6 +56,14 @@ const ProjectCard: React.FC<Props> = ({ project, index }) => {
         <div className="absolute top-4 left-4 z-20 text-[80px] font-black text-white/[0.03] leading-none select-none pointer-events-none">
           0{index + 1}
         </div>
+
+        {/* Status badge */}
+        {status && (
+          <div className="absolute top-4 right-4 z-20 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-sm border border-emerald-500/30 text-[9px] font-mono uppercase tracking-widest text-emerald-400">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            {status}
+          </div>
+        )}
 
         <div className={`aspect-[16/10] overflow-hidden relative ${(hasLogo || hasTextLogo) ? 'bg-neutral-900 flex items-center justify-center p-8' : 'bg-neutral-900'}`}>
           {hasTextLogo ? (
@@ -152,28 +179,56 @@ const ProjectCard: React.FC<Props> = ({ project, index }) => {
 
             {/* Scrollable content */}
             <div className="overflow-y-auto max-h-[90vh] custom-scrollbar">
-              {/* Header with logo/image */}
-              <div className="relative bg-neutral-900 p-8 flex items-center gap-6 border-b border-neutral-800">
-                {project.textLogo ? (
-                  <div className="w-20 h-20 rounded-xl bg-gradient-to-br from-emerald-500/20 to-neutral-800 flex items-center justify-center flex-shrink-0 border border-emerald-500/30">
-                    <span className="text-lg font-black text-emerald-400">{project.textLogo.split('.')[0]}</span>
-                  </div>
-                ) : project.logo && (
-                  <div className="w-20 h-20 rounded-xl bg-neutral-800 p-3 flex-shrink-0">
-                    <img src={project.logo} alt={project.title} className="w-full h-full object-contain" />
-                  </div>
-                )}
-                <div>
-                  <div className="flex gap-2 mb-2">
-                    {project.tags.map(tag => (
-                      <span key={tag} className="px-2 py-1 text-[10px] uppercase font-mono tracking-widest bg-emerald-500/10 text-emerald-400 rounded">
-                        {tag}
+              {/* Header */}
+              <div className="relative bg-gradient-to-br from-neutral-900 to-neutral-950 p-6 md:p-8 border-b border-neutral-800">
+                {/* Accent glow */}
+                <div className={`absolute -top-16 -left-10 w-48 h-48 rounded-full blur-3xl opacity-30 ${meta.bg} pointer-events-none`}></div>
+
+                <div className="relative flex items-start gap-4 md:gap-5 pr-12">
+                  {/* Monogram / logo */}
+                  {project.logo ? (
+                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-neutral-800 p-3 flex-shrink-0">
+                      <img src={project.logo} alt={project.title} className="w-full h-full object-contain" />
+                    </div>
+                  ) : (
+                    <div className={`w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br ${meta.from} to-neutral-900 border ${meta.border} flex items-center justify-center flex-shrink-0`}>
+                      <span className={`text-2xl font-black ${meta.text}`}>{monogram}</span>
+                    </div>
+                  )}
+
+                  <div className="min-w-0 flex-1">
+                    {/* Pills */}
+                    <div className="flex flex-wrap items-center gap-2 mb-3">
+                      <span className={`px-2.5 py-1 text-[10px] uppercase font-mono tracking-widest rounded ${meta.bg} ${meta.text} border ${meta.border}`}>
+                        {meta.label}
                       </span>
-                    ))}
+                      {status && (
+                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[10px] uppercase font-mono tracking-widest rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                          {status}
+                        </span>
+                      )}
+                    </div>
+
+                    <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tight text-white leading-[1.05] break-words">
+                      {project.title}
+                    </h2>
+
+                    {project.description && (
+                      <p className="mt-3 text-sm text-neutral-400 font-light leading-relaxed">
+                        {project.description}
+                      </p>
+                    )}
+
+                    {/* Tag chips */}
+                    <div className="flex flex-wrap gap-2 mt-4">
+                      {project.tags.map((tag) => (
+                        <span key={tag} className="px-2 py-0.5 text-[10px] uppercase font-mono tracking-widest text-neutral-500 border border-neutral-800 rounded">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                  <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight text-white">
-                    {project.title}
-                  </h2>
                 </div>
               </div>
 

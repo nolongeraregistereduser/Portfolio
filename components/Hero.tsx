@@ -200,13 +200,16 @@ const Hero: React.FC = () => {
             
             {/* Dropdown Menu */}
             <div
-              className={`absolute top-full left-0 mt-2 w-72 z-[100] transition-all duration-200 ${
+              className={`absolute top-full left-1/2 -translate-x-1/2 sm:left-0 sm:translate-x-0 mt-3 w-[20rem] max-w-[calc(100vw-2rem)] z-[200] transition-all duration-200 ${
                 showCvDropdown
-                  ? 'opacity-100 visible translate-y-0'
+                  ? 'opacity-100 visible sm:translate-y-0'
                   : 'opacity-0 invisible -translate-y-2 pointer-events-none'
               }`}
             >
-              <div className="bg-neutral-900 border border-neutral-800 rounded-lg overflow-hidden shadow-2xl shadow-black/50">
+              <div className="bg-neutral-950 border border-neutral-700 rounded-xl overflow-hidden shadow-2xl shadow-black/70">
+                <div className="px-5 py-3 border-b border-neutral-800 bg-neutral-900/60">
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-500">Select a profile</span>
+                </div>
                 {[
                   {
                     file: '/docs/Mohamed-Zouhairi-CV-Software-PHP-Laravel.pdf',
@@ -235,14 +238,14 @@ const Hero: React.FC = () => {
                       e.stopPropagation();
                       setShowCvDropdown(false);
                     }}
-                    className={`group/item flex items-center gap-4 px-5 py-4 text-neutral-300 hover:bg-emerald-500/10 hover:text-emerald-400 transition-all cursor-pointer ${idx < arr.length - 1 ? 'border-b border-neutral-800' : ''}`}
+                    className={`group/item flex items-center gap-3 px-5 py-4 text-neutral-300 hover:bg-emerald-500/10 hover:text-emerald-400 transition-all cursor-pointer ${idx < arr.length - 1 ? 'border-b border-neutral-800' : ''}`}
                   >
-                    <span className="text-xs font-black w-8 text-center text-emerald-400 shrink-0">{cv.badge}</span>
-                    <div className="flex-1 text-left">
-                      <span className="font-black uppercase tracking-wider text-xs block">{cv.title}</span>
-                      <span className="text-[10px] text-neutral-500 group-hover/item:text-emerald-400/60 font-mono">{cv.sub}</span>
+                    <span className="w-9 h-9 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-[10px] font-black text-emerald-400 shrink-0">{cv.badge}</span>
+                    <div className="flex-1 text-left min-w-0">
+                      <span className="font-black uppercase tracking-wide text-[11px] block whitespace-nowrap">{cv.title}</span>
+                      <span className="text-[10px] text-neutral-500 group-hover/item:text-emerald-400/60 font-mono block whitespace-nowrap">{cv.sub}</span>
                     </div>
-                    <svg className="w-4 h-4 opacity-50 group-hover/item:opacity-100 transition-opacity shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 opacity-40 group-hover/item:opacity-100 transition-opacity shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
                     </svg>
                   </a>
