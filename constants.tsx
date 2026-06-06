@@ -70,6 +70,22 @@ export const SKILLS: Skill[] = [
 // ============================================
 export const EXPERIENCES: Experience[] = [
   {
+    title: "Software Engineer",
+    company: "Vantery",
+    period: "January 2026 - June 2026",
+    location: "Remote",
+    description: "End-to-end design and development of high-performance educational SaaS platforms. Built a stateful single-page application (Next.js + Laravel 11) with secure Sanctum authentication and Spatie role-based access control, an AI-powered university orientation engine combining deterministic scoring with Claude AI, and self-hosted DevOps (Nginx, SSL, CI/CD) on a Linux VPS.",
+    technologies: ["Laravel 11", "Next.js", "PostgreSQL", "Claude AI", "Docker", "CI/CD"]
+  },
+  {
+    title: "ServiceNow Developer",
+    company: "UX4MATION",
+    period: "January 2025 - February 2026",
+    location: "Morocco · Remote",
+    description: "ServiceNow platform administration and development at a premier ServiceNow Pure-play Partner specializing in digital transformation. Configured and customized core ITSM workflows (Incident, Problem and Change Management), authored Business Rules and Access Control Lists (ACLs), and administered users and roles in enterprise environments — earning the ServiceNow Certified System Administrator (CSA) certification.",
+    technologies: ["ServiceNow", "ITSM", "Business Rules", "ACLs", "CSA"]
+  },
+  {
     title: "Full Stack Developer - PMIS Application",
     company: "NETMAR",
     period: "May 2024 - July 2024",
