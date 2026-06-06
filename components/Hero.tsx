@@ -55,7 +55,7 @@ const Hero: React.FC = () => {
       <div className="absolute bottom-1/4 -left-20 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl opacity-20 pointer-events-none"></div>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-neutral-900/50 to-transparent rounded-full blur-3xl opacity-30 pointer-events-none"></div>
 
-      <div className="relative z-10 text-center max-w-5xl flex flex-col items-center">
+      <div className="relative z-30 text-center max-w-5xl flex flex-col items-center">
         {/* Status Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 border border-neutral-800 rounded-full text-[10px] font-mono text-neutral-500 mb-10 tracking-[0.2em] uppercase hover:border-emerald-800 hover:text-emerald-400 transition-all duration-500 group">
           <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
